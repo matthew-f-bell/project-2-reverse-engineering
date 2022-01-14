@@ -1,38 +1,38 @@
 <mxfile host="65bd71144e">
     <diagram id="p5LFxBPF5kpVAyfh1P8a" name="Page-1">
-        <mxGraphModel dx="957" dy="569" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="898" dy="567" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="2" value="Sales" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=1;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;labelBackgroundColor=none;" vertex="1" parent="1">
-                    <mxGeometry x="530" y="330" width="240" height="210" as="geometry"/>
+                <mxCell id="17" value="Items" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=1;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;labelBackgroundColor=none;fillColor=#1ba1e2;strokeColor=#006EAF;fontColor=#ffffff;" vertex="1" parent="1">
+                    <mxGeometry x="530" y="330" width="260" height="210" as="geometry"/>
                 </mxCell>
-                <mxCell id="3" value="_id: ObjectId&#10;name: {type: String, required: true},&#10;type-items: {type: String, required: true},&#10;type-description: {type: String, required: true},&#10;location:  {type: String},&#10;price: {type: Number, required: true},&#10;user: [ {type: Schema. Types.ObjectId,&#10;    ref: &quot;User&quot; } ]," style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;rounded=1;" vertex="1" parent="2">
-                    <mxGeometry y="30" width="240" height="180" as="geometry"/>
+                <mxCell id="18" value="_id: ObjectId&#10;name: {type: String, required: true},&#10;items_type: {type: String, required: true},&#10;items_description: {type: String, required: true},&#10;location:  {type: String},&#10;price: {type: Number, required: true},&#10;user_id: [ {type: Schema. Types.ObjectId,&#10;    ref: &quot;User&quot; } ]," style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;rounded=1;" vertex="1" parent="17">
+                    <mxGeometry y="30" width="260" height="180" as="geometry"/>
                 </mxCell>
-                <mxCell id="4" value="User" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=1;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="1">
-                    <mxGeometry x="160" y="180" width="230" height="220" as="geometry"/>
+                <mxCell id="19" value="User" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=1;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;fillColor=#1ba1e2;strokeColor=#006EAF;sketch=0;glass=0;fontColor=#ffffff;" vertex="1" parent="1">
+                    <mxGeometry x="160" y="170" width="240" height="230" as="geometry"/>
                 </mxCell>
-                <mxCell id="5" value="_id: ObjectId&#10;name: {type: String, required: true},&#10;username: {type: String, required: true},&#10;email:  {type: String},&#10;password: {type: String, required: true},&#10;location:  {type: String},&#10;posts: [ {type: Schema. Types.ObjectId, &#10;    ref: &quot;post&quot; } ],&#10;sales:  [ {type: Schema. Types.ObjectId,&#10;    ref: &quot;sale&quot; } ],&#10;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;rounded=1;" vertex="1" parent="4">
-                    <mxGeometry y="30" width="230" height="190" as="geometry"/>
+                <mxCell id="20" value="_id: ObjectId&#10;name: {type: String, required: true},&#10;username: {type: String, required: true},&#10;email:  {type: String},&#10;password: {type: String, required: true},&#10;location:  {type: String},&#10;jobs: [ {type: Schema. Types.ObjectId, &#10;    ref: &quot;Job&quot; } ],&#10;items:  [ {type: Schema. Types.ObjectId,&#10;    ref: &quot;Item&quot; } ],&#10;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;rounded=1;" vertex="1" parent="19">
+                    <mxGeometry y="30" width="240" height="200" as="geometry"/>
                 </mxCell>
-                <mxCell id="6" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;rounded=1;entryX=-0.012;entryY=0.383;entryDx=0;entryDy=0;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryPerimeter=0;" edge="1" parent="1" source="5" target="9">
+                <mxCell id="21" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;rounded=1;entryX=-0.012;entryY=0.383;entryDx=0;entryDy=0;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryPerimeter=0;" edge="1" parent="1" source="20" target="24">
                     <mxGeometry width="100" height="100" relative="1" as="geometry">
                         <mxPoint x="330" y="310" as="sourcePoint"/>
                         <mxPoint x="520" y="160" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="7" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;rounded=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="5">
+                <mxCell id="22" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;rounded=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="20">
                     <mxGeometry width="100" height="100" relative="1" as="geometry">
                         <mxPoint x="230" y="400" as="sourcePoint"/>
                         <mxPoint x="530" y="430" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="8" value="Posts" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=1;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="1">
-                    <mxGeometry x="530" y="60" width="240" height="210" as="geometry"/>
+                <mxCell id="23" value="Jobs" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=1;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;fillColor=#1ba1e2;strokeColor=#006EAF;glass=0;fontColor=#ffffff;" vertex="1" parent="1">
+                    <mxGeometry x="530" y="60" width="250" height="210" as="geometry"/>
                 </mxCell>
-                <mxCell id="9" value="_id: ObjectId&#10;title: {type: String, required: true},&#10;company: {type: String, required: false},&#10;description: {type: String, required: true},&#10;date:  {type: Date, default: Now },&#10;user: [ {type: Schema, Types.ObjectId, &#10;    ref: &quot;User&quot; } ],&#10;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;rounded=1;" vertex="1" parent="8">
-                    <mxGeometry y="30" width="240" height="180" as="geometry"/>
+                <mxCell id="24" value="_id: ObjectId&#10;title: {type: String, required: true},&#10;company: {type: String, required: false},&#10;description: {type: String, required: true},&#10;date:  {type: Date, default: Now },&#10;user_id: [ {type: Schema, Types.ObjectId, &#10;    ref: &quot;User&quot; } ],&#10;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;rounded=1;" vertex="1" parent="23">
+                    <mxGeometry y="30" width="250" height="180" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
