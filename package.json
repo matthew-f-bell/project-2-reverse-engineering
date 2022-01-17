@@ -1,0 +1,26 @@
+{
+  "name": "project-2-reverse-engineering",
+  "version": "1.0.0",
+  "description": "We reverse engineered a website and redesigned it",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xdjx3runx/project-2-reverse-engineering.git"
+  },
+  "author": "Matthew Bell & Nesh Masood",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xdjx3runx/project-2-reverse-engineering/issues"
+  },
+  "homepage": "https://github.com/xdjx3runx/project-2-reverse-engineering#readme",
+  "dependencies": {
+    "dotenv": "^14.1.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.2",
+    "method-override": "^3.0.0"
+  }
+}
