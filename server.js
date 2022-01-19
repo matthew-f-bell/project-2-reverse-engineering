@@ -2,6 +2,7 @@ require("dotenv").config();
 /* ==== External Modules ==== */
 const express = require("express");
 const methodOverride = require("method-override");
+const mongoose = require("mongoose");
 
 /* ==== Internal Modules ==== */
 const routes = require("./routes");
@@ -43,8 +44,7 @@ app.listen(PORT, () => {
 });
 
 /* ==== Database Connection ==== */
-// require
-const mongoose = require("mongoose");
+
 // shortcut to mongoose.connection object, created by mongoose.connect
 const db = mongoose.connection;
 const dbUrl = process.env.DATABASE_URL;
