@@ -1,23 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script defer src="script.js"></script>
-    <link rel="stylesheet" href="/css/style.css"/>
-</head>
-<body>
-    <main>
-        <h1>List of Items for Sale</h1>
-        <ul>
-            <li>
-                <a href="/items">Items</a>
-            </li>
-        </ul>
-
-    </main>
-    
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script defer src="script.js"></script>
+        <link rel="stylesheet" href="/css/style.css"/>
+		<title>Items for sale</title>
+	</head>
+	<body>
+		<nav>
+			<h1>Welcome to Craig's List!</h1>
+			<ul>
+				<li>
+					<a href="/items">Items</a>
+				</li>
+				<li>
+					<a href="/items/new">Add an Item</a>
+				</li>
+			</ul>
+		</nav>
+		<main>
+			<h2>List of Items</h2>
+			<% if(!items.length) {
+				%>
+			<p>There are no items available.</p>
+			<%
+			} %>
+			
+			<ul>
+				<% items.forEach(item => { %>
+				<li>
+					<a href="/items/<%= item._id %>"><%= item.name %></a>
+				</li>
+				<% }) %>
+			</ul>
+		</main>
+	</body>
 </html>
