@@ -8,7 +8,7 @@ const userSchema = new mongoose.Schema(
 		},
         username: {
             type: String, 
-            required: [true],
+            required: [true, "Username can not be blank"],
         },
         email:  {type: String,
         },
@@ -20,8 +20,10 @@ const userSchema = new mongoose.Schema(
             type: String,
             required: [true, "You must enter a location"],
         },
-        jobs: [{type: Schema. Types.ObjectId, ref: "Job" }],
-        items:  [{type: Schema. Types.ObjectId, ref: "Item" }],
+        jobs: [{type: Schema. Types.ObjectId, 
+            ref: "Job" }],
+        items:  [{type: Schema. Types.ObjectId, 
+            ref: "Item" }],
 
 	},
 	{
