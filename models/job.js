@@ -19,7 +19,7 @@ const jobSchema = new mongoose.Schema(
             default: Date.now,
         },
         user_id: {
-            items: [{type: Schema. Types.ObjectId, 
+            items: [{type: mongoose.Schema.Types.ObjectId, 
                 ref: "User"}],
 
         },

@@ -20,9 +20,9 @@ const userSchema = new mongoose.Schema(
             type: String,
             required: [true, "You must enter a location"],
         },
-        jobs: [{type: Schema. Types.ObjectId, 
+        jobs: [{type: mongoose.Schema.Types.ObjectId, 
             ref: "Job" }],
-        items:  [{type: Schema. Types.ObjectId, 
+        items:  [{type: mongoose.Schema.Types.ObjectId, 
             ref: "Item" }],
 
 	},
