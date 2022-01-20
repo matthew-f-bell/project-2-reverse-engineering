@@ -44,7 +44,7 @@ app.use(passport.session());
 /* ==== Routes && Controllers ==== */
 // home route
 app.get("/", (req, res) => {
-    res.render("home")
+    res.render("home", {user: req.user} )
 })
 
 // 404 route
@@ -53,6 +53,7 @@ app.get((req, res) => {
 })
 
 /* ==== Internal Routes ==== */
+app.use("/", routes.googleOAuth);
 app.use("/items", routes.items);
 app.use("/jobs", routes.jobs);
 
