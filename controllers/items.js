@@ -2,10 +2,10 @@ const db = require("../models");
 
 
 const index = (req, res) => {
-    db.Item.find({}, function (err, allItems) {
+    db.Item.find({}, (err, allItems) => {
         if (err) return res.send(err);
         const context = { items: allItems };
-        return res.render("items/index", context);
+        return res.render("items/viewAllItems", context);
     });
 };
 

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Items for Sale<%= item.name %></title>
+	</head>
+	<body>
+		<nav>
+			<h1>List of Items</h1>
+			<ul>
+				<li>
+					<a href="/items">List of Items</a>
+				</li>
+				<li>
+					<a href="/items/new">Post an Item for Sale</a>
+				</li>
+			</ul>
+		</nav>
+		<main>
+			<section>
+				<h2>Item Info</h2>
+				<a href="/items/<%=item._id %>/edit">Edit</a>
+				<ul>
+					<li>Name: <%= item.name %></li>
+					<li>Items:</li>
+					<% items.forEach(item => { %>
+						<li><%=item.name %></li>
+					<% }) %>
+				</ul>
+			</section>
+			<form action="/items/<%= item._id %>?_method=DELETE" method="POST">
+				<input type="submit" value="Delete" />
+			</form>
+		</main>
+	</body>
+</html>
