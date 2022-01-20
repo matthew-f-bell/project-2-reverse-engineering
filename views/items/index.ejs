@@ -22,11 +22,17 @@
 			<div class="item-div">
 				<% items.forEach((item, i) => { %>
 					<div class="itemList">
-						<h4><%= item.name %></h4>
-						<a href="/items<%= i %>">
-						</a>
+						<tr>
+							<td><%= item.name %></td>
+							<td><%= item.items_type %></td>
+							<td><%= item.items_description %></td>
+							<td><%= item.location %></td>
+							<td><%= item.price %></td>
+							<td><a href="/items/<%= item._id %>">DETAILS</a></td>
+						  </tr>
 					</div>
 				<% }) %>
-				</div> 
+			</div> 
+		</nav>
 	</body>
 </html>
