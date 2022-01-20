@@ -34,7 +34,7 @@ app.get("/", (req, res) => {
 
 // internal route
 app.use("/items", routes.items);
-// app.use("/jobs", routes.jobs);
+app.use("/jobs", routes.jobs);
 
 
 // 404 route
