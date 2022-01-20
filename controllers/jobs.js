@@ -9,6 +9,26 @@ const index = (req, res) => {
     });
 };
 
+
+// newJob
+
+const newJob = (req, res) => {
+	res.render("jobs/new");
+};
+
+// show
+
+const show = (req, res) => {
+	console.log(req.params.id);
+	db.Job.findById(req.params.id)
+		.populate("jobs")
+		.exec((err, foundJob)=> {
+			if(err) return res.send(err);
+			const context = {job: foundJob};
+		    return res.render("jobs/show", context)
+	});
+};
+
 // create
 const create = (req, res) => {
 	db.Job.create(req.body, (err, createdJob) => {
@@ -18,22 +38,52 @@ const create = (req, res) => {
 	});
 };
 
+// Edit
 
-// newJob
-
-const newJob = (req, res) => {
-	res.render("jobs/new");
+const edit = (req, res) => {
+	db.Job.findById(req.params.id, (err, foundJob) => {
+		if (err) return res.send(err);
+		const context = { job: foundJob };
+	    res.render("jobs/edit", context);
+	});
 };
 
+// Update
 
+const update = (req, res) => {
+	db.Job.findByIdAndUpdate(req.params.id,
+		{
+			$set: {...req.body,},
+		},
+		{ new: true },
+		(err, updatedJob) => {
+			if (err) return res.send(err);
+			res.redirect(`/jobs/${updatedJob._id}`);
+		}
+	);
+};
 
+// delete
 
+const destroy = (req, res) => {
+	db.Job.findByIdAndDelete(req.params.id, (err, deletedJob) => {
+		if (err) return res.send(err);
+		db.Job.findById(deletedJob, (err, foundJob) => {
+            foundJob.remove(deletedJob);
+            foundJob.save();
+            res.redirect("/jobs")
+        })
+	});
+};
 
 
 module.exports = {
     index,
-    create,
     newJob,
-    
-    
+    create,
+    show,
+    edit,
+    update,
+    destroy,
+
 }
