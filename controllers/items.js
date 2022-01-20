@@ -5,7 +5,7 @@ const index = (req, res) => {
     db.Item.find({}, (err, allItems) => {
         if (err) return res.send(err);
         const context = { items: allItems };
-        return res.render("items/viewAllItems", context);
+        return res.render("items/index", context);
     });
 };
 

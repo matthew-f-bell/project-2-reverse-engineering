@@ -10,7 +10,7 @@ const routes = require("./routes");
 const app = express();
 
 /* ==== Configuration ==== */
-const PORT = 4000 ;
+const PORT = 4000;
 app.set("view engine", "ejs");
 
 /* ==== Middleware ==== */
@@ -29,8 +29,13 @@ app.use((req, res, next) => {
 /* ==== Routes && Controllers ==== */
 // home route
 app.get("/", (req, res) => {
-    res.render("home")
-})
+    res.render("home");
+});
+
+// internal route
+app.use("/items", routes.items);
+// app.use("/jobs", routes.jobs);
+
 
 // 404 route
 app.get((req, res) => {
