@@ -3,6 +3,9 @@ require("dotenv").config();
 const express = require("express");
 const methodOverride = require("method-override");
 const mongoose = require("mongoose");
+const morgan = require("morgan");
+const session = require("express-session");
+const passport = require("passport");
 
 /* ==== Internal Modules ==== */
 const routes = require("./routes");
@@ -26,6 +29,17 @@ app.use((req, res, next) => {
     console.log(req.url, req.method);
     next();
 });
+// session middleware
+app.use(
+	session({
+		secret: "TeriList",
+		resave: false,
+		saveUninitialized: true,
+	})	
+);
+// mount passport
+app.use(passport.initialize());
+app.use(passport.session());
 
 /* ==== Routes && Controllers ==== */
 // home route
@@ -57,3 +71,6 @@ mongoose
 		)
 	)
 	.catch((err) => console.log(`MongoDB connection FAILED :( Error: ${err}`));
+
+// passport config
+require("./config/passport");
