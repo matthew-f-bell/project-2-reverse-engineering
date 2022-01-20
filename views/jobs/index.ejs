@@ -1,23 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script defer src="script.js"></script>
-    <link rel="stylesheet" href="/css/style.css"/>
-</head>
-<body>
-    <main>
-        <h1>List of Jobs</h1>
-        <ul>
-            <li>
-                <a href="/jobs">Jobs</a>
-            </li>
-        </ul>
-
-    </main>
-    
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script defer src="script.js"></script>
+        <link rel="stylesheet" href="../public/css/style.css"/>
+		<title>List of Jobs</title>
+	</head>
+	<body>
+		<nav>
+			<h1 class="Job-header">Job Listing!</h1>
+			<a href ="/"> Back to Home</a>
+			<div class="job-div">
+				<% jobs.forEach((job, i) => { %>
+					<div class="jobList">
+						<tr>
+							<td><%= job.title %></td>
+							<td><%= job.company %></td>
+							<td><%= job.description %></td>
+							<td><%= job.date %></td>
+							<td><a href="/jobs/<%= job._id %>">DETAILS</a></td>
+						  </tr>
+					</div>
+				<% }) %>
+			</div> 
+		</nav>
+	</body>
 </html>
