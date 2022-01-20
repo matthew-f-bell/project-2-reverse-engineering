@@ -9,6 +9,20 @@ const index = (req, res) => {
     });
 };
 
+const show = (req, res) => {
+	console.log(req.params.id);
+	db.Item.findById(req.params.id)
+		.populate("items")
+		.exec((err, foundItem)=> {
+			if(err) return res.send(err);
+			const context = {item: foundItem};
+		    return res.render("items/show", context)
+	});
+};
+
+const newItem = (req, res) => {
+	res.render("items/new");
+};
 
 const create = (req, res) => {
 	db.Item.create(req.body, function (err, foundItem) {
@@ -21,6 +35,8 @@ const create = (req, res) => {
 
 module.exports = {
     index,
+    show,
     create,
+    newItem,
     
 }
