@@ -29,7 +29,7 @@ app.use((req, res, next) => {
 /* ==== Routes && Controllers ==== */
 // home route
 app.get("/", (req, res) => {
-    res.send("<h1>Sanity Check/h1>")
+    res.render("home")
 })
 
 // 404 route
