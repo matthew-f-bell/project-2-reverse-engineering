@@ -10,6 +10,13 @@
 	</head>
 	<body>
 		<nav>
+			<% if (user) { %>
+				<a href="/logout"><i class="material-icons left">trending_flat</i>Log Out</a>
+			<% } else { %>
+				<a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a>
+			<% } %>
+		</nav>
+
 			<h1 class="Item-header">List of Items for Sale!</h1>
 			<a href ="/"> Back to Home</a>
 			<div class="item-div">

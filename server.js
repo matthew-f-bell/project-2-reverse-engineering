@@ -2,6 +2,10 @@ require("dotenv").config();
 /* ==== External Modules ==== */
 const express = require("express");
 const methodOverride = require("method-override");
+const mongoose = require("mongoose");
+const morgan = require("morgan");
+const session = require("express-session");
+const passport = require("passport");
 
 /* ==== Internal Modules ==== */
 const routes = require("./routes");
@@ -25,22 +29,33 @@ app.use((req, res, next) => {
     console.log(req.url, req.method);
     next();
 });
+// session middleware
+app.use(
+	session({
+		secret: "TeriList",
+		resave: false,
+		saveUninitialized: true,
+	})	
+);
+// mount passport
+app.use(passport.initialize());
+app.use(passport.session());
 
 /* ==== Routes && Controllers ==== */
 // home route
 app.get("/", (req, res) => {
-    res.render("home");
-});
-
-// internal route
-app.use("/items", routes.items);
-app.use("/jobs", routes.jobs);
-
+    res.render("home", {user: req.user} )
+})
 
 // 404 route
 app.get((req, res) => {
     res.send("404! Error! Page not found >:(")
 })
+
+/* ==== Internal Routes ==== */
+app.use("/", routes.googleOAuth);
+app.use("/items", routes.items);
+app.use("/jobs", routes.jobs);
 
 /* ==== Server bind ==== */
 app.listen(PORT, () => {
@@ -48,8 +63,7 @@ app.listen(PORT, () => {
 });
 
 /* ==== Database Connection ==== */
-// require
-const mongoose = require("mongoose");
+
 // shortcut to mongoose.connection object, created by mongoose.connect
 const db = mongoose.connection;
 const dbUrl = process.env.DATABASE_URL;
@@ -62,3 +76,6 @@ mongoose
 		)
 	)
 	.catch((err) => console.log(`MongoDB connection FAILED :( Error: ${err}`));
+
+// passport config
+require("./config/passport");
