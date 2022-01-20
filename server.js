@@ -44,13 +44,17 @@ app.use(passport.session());
 /* ==== Routes && Controllers ==== */
 // home route
 app.get("/", (req, res) => {
-    res.send("<h1>Sanity Check/h1>")
+    res.render("home")
 })
 
 // 404 route
 app.get((req, res) => {
     res.send("404! Error! Page not found >:(")
 })
+
+/* ==== Internal Routes ==== */
+app.use("/items", routes.items);
+app.use("/jobs", routes.jobs);
 
 /* ==== Server bind ==== */
 app.listen(PORT, () => {
