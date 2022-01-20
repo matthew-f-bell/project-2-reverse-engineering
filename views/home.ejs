@@ -1,29 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script defer src="script.js"></script>
-    <link rel="stylesheet" href="../public/css/style.css"/>
+    <%- include('../partials/head.ejs') %>
     <title>Craig's List</title>
 </head>
 <body>
-    <nav>
-        <div>
-                <a href="/" class="site-name">Craig'slist</a>
-                <a href="/search">Search</a>
-                <% if (user) { %>
-                    <a href="/logout"><i>trending_flat</i>Log Out</a>
-                <% } else { %>
-                    <a href="/auth/google"><i>vpn_key</i>Login with Google</a>
-                <% } %>
-                <ul>
-                    <a href="/items">For Sale</a>
-                    <a href="/jobs">Job Listing</a>
-                </ul>
-        </div>
-    </nav>
-
+    <%- include('../partials/nav.ejs') %>
 </body>
 </html>

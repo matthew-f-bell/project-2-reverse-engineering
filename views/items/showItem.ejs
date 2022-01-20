@@ -1,23 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<%- include('../partials/head.ejs') %>
 		<title>Items for Sale<%= item.name %></title>
 	</head>
 	<body>
-		<nav>
-			<h1>List of Items</h1>
-			<ul>
-				<li>
-					<a href="/items">List of Items</a>
-				</li>
-				<li>
-					<a href="/items/new">Post an Item for Sale</a>
-				</li>
-			</ul>
-		</nav>
+		<%- include('../partials/nav.ejs') %>
 		<main>
 			<section>
 				<h2>Item Info</h2>

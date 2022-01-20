@@ -1,23 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<%- include('../partials/head.ejs') %>
 		<title>Items for sale</title>
 	</head>
 	<body>
-		<nav>
-			<h1>Welcome to Blog App!</h1>
-			<ul>
-				<li>
-					<a href="/">home</a>
-				</li>
-				<li>
-					<a href="/items">List of Items for Sale!</a>
-				</li>
-			</ul>
-		</nav>
+
+		<%- include('../partials/nav.ejs') %>
 		<main>
 			<h1>Edit <%= item.name %></h1>
 			<form action="/items/<%= item._id %>?_method=PUT" method="POST">
