@@ -18,7 +18,13 @@
 		</nav>
 
 			<h1 class="Item-header">List of Items for Sale!</h1>
+			<form action="/quotes" method="POST">
+				<input type="text" placeholder="" name="name">
+				<input type="text" placeholder="" name="quote">
+				<button type="submit">Submit</button>
+			  </form>
 			<a href ="/"> Back to Home</a>
+			
 			<div class="item-div">
 				<% items.forEach((item, i) => { %>
 					<div class="itemList">

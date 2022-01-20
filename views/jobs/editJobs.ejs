@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Job Listing</title>
+	</head>
+	<body>
+		<nav>
+			<h1>Welcome to Blog App!</h1>
+			<ul>
+				<li>
+					<a href="/">home</a>
+				</li>
+				<li>
+					<a href="/items">List Job posting</a>
+				</li>
+			</ul>
+		</nav>
+		<main>
+			<h1>Edit <%= post.title %></h1>
+			<form action="/jobs/<%= job._id %>?_method=PUT" method="POST">
+				<input type="text" name="title" value="<%= job.title %>" />
+                <div>
+                    <label>Company<span class="required">*</span></label><br>
+                    <input type="text" name="companyName"><br> 
+                </div>
+                <div>
+                    <label>Description</label><br>
+                    <input type="text" name="description"><br>
+                </div>
+                <div>
+                    <label>Date</label><br/>
+                    <textarea type="text" name="date" rows="7" cols="30"></textarea><br>
+						<input type="submit" value="Update" />
+                </div>
+			</form>
+		</main>
+	</body>
+</html>
