@@ -4,6 +4,13 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="../public/css/styles.css">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            
 		<title>Items for sale</title>
 	</head>
 	<body>
@@ -16,28 +23,55 @@
 					<a href="/items">List of Items for Sale!</a>
 				</li>
 				<li>
-					<a href="/items/new">Post an Item </a>
+					<a href="/items/edit">Post an Item </a>
 				</li>
 			</ul>
 		</nav>
-		<main>
-			<h1>Edit <%= item.name %></h1>
+		<div class="container">
+                
+			<div class="row">
+				<h1>Edit <%= item.name %></h1>
 			<form action="/items/<%= item._id %>?_method=PUT" method="POST">
 				<input type="text" name="name" value="<%= item.name %>" />
-                <div>
-                    <label>Price<span class="required">*</span></label><br>
-                    <input type="text" name="price"><br> 
-                </div>
-                <div>
-                    <label>Type of Item</label><br>
-                    <input type="text" name="itemType"><br>
-                </div>
-                <div>
-                    <label>Description</label><br/>
-                    <textarea type="text" name="description" rows="7" cols="30"></textarea><br>
-						<input type="submit" value="Update" />
-                </div>
-			</form>
+					<div class="row">
+						<div class="input-field col s12">
+							<input name="name" id="name" type="text" class="validate">
+							<label for="name">Item Name</label>
+						</div>
+					</div>
+					
+				<div class="row">
+					<div class="input-field col s12">
+						<input name="items_type" id="items_type" type="text" class="validate">
+						<label for="items_type">Item type</label>
+					</div>
+				</div>
+					<div class="row">
+						<div class="input-field col s12">
+							<input name="location" id="location" type="text" class="validate">
+							<label for="location">Location</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12">
+							<input name="price" id="price" type="text" class="validate">
+							<label for="price">Item price</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12">
+							<textarea name="items_description" id="items_description" class="materialize-textarea"></textarea>
+							<label for="items_description">items_description</label>
+						</div>
+					</div>
+					<div>
+						<label>Description</label><br/>
+						<textarea type="text" name="description" rows="7" cols="30"></textarea><br>
+							<input type="submit" value="Update" />
+					</div>
+				</form>
+			</div>
+		</div>  
 		</main>
 	</body>
 </html>

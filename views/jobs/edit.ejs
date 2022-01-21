@@ -4,6 +4,11 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		 <!-- Compiled and minified CSS -->
+		 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+		 <!-- Compiled and minified JavaScript -->
+		 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>		 
 		<title>Job Listing</title>
 	</head>
 	<body>
@@ -15,15 +20,59 @@
 				<li>
 					<a href="/jobs">List Job listing</a>
 				</li>
+				<li>
+					<a href="/jobs/edit">Edit a Job listing </a>
+				</li>
 			</ul>
 		</nav>
+		<div class="row">
+			<h1>Edit <%= item.name %></h1>
+		<form action="/items/<%= item._id %>?_method=PUT" method="POST">
+			<input type="text" name="name" value="<%= item.name %>" />
+				<div class="row">
+					<div class="input-field col s12">
+						<input name="Company" id="name" type="text" class="validate">
+						<label for="name">Company</label>
+					</div>
+				</div>
+				
+			<div class="row">
+				<div class="input-field col s12">
+					<input name="description" id="description" type="text" class="validate">
+					<label for="description">Job description</label>
+				</div>
+			</div>
+				<div class="row">
+					<div class="input-field col s12">
+						<input name="location" id="location" type="text" class="validate">
+						<label for="location">Date</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s12">
+						<textarea name="Date" id="Date" class="materialize-textarea"></textarea>
+						<label for="Date">items_description</label>
+					</div>
+				</div>
+				<div>
+					<label>Description</label><br/>
+					<textarea type="text" name="description" rows="7" cols="30"></textarea><br>
+						<input type="submit" value="Update" />
+				</div>
+			</form>
+		</div>
+	</div>  
+	</main>
+
+
+
 		<main>
 			<h1>Edit <%= job.title %></h1>
 			<form action="/jobs/<%= job._id %>?_method=PUT" method="POST">
-				<input type="text" title="title" value="<%= job.title %>" />
+				<input type="text" name="title" value="<%= job.title %>" />
                 <div>
-                    <label>Company<span class="required">*</span></label><br>
-                    <input type="text" name="companyName"><br> 
+                    <label>Company</label><br>
+                    <input type="text" name="company"><br> 
                 </div>
                 <div>
                     <label>Description</label><br>
