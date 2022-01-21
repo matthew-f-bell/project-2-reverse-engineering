@@ -11,7 +11,7 @@ const index = (req, res, next) => {
 
 // newItem
 
-const newItem = (req, res, next) => {
+const newItem = (req, res,) => {
 	const context = { user: req.user };
 	return res.render("items/new", context);
 };
@@ -19,11 +19,12 @@ const newItem = (req, res, next) => {
 // show
 
 const show = (req, res) => {
-	console.log(req.params.id);
+	console.log("ItemsController>Show>Param:" + req.params.id);
 	db.Item.findById(req.params.id)
-		.populate("items")
+		.populate("user")
 		.exec((err, foundItem)=> {
 			if(err) return res.send(err);
+			console.log(foundItem);
 			const context = {item: foundItem};
 		    return res.render("items/show", context)
 	});
@@ -67,13 +68,10 @@ const update = (req, res) => {
 // delete
 
 const destroy = (req, res) => {
+	console.log("ItemsController>destroy>" + req.params.id)
 	db.Item.findByIdAndDelete(req.params.id, (err, deletedItem) => {
 		if (err) return res.send(err);
-		db.Item.findById(deletedItem, (err, foundItem) => {
-            foundItem.remove(deletedItem);
-            foundItem.save();
-            res.redirect("/items")
-        })
+		res.redirect("/users")
 	});
 };
 

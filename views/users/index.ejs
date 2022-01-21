@@ -60,8 +60,12 @@
                                     <td><%= item.items_type %></td>
                                     <td><%= item.location %></td>
                                     <td><%= item.price %></td>
-                                    <td><a class="waves-effect waves-light btn" href="/">Update</a></td>
-                                    <td><a class="waves-effect waves-light btn" href="/">Delete</a></td>
+                                    <td><a class="waves-effect waves-light btn" href="/items/<%= item._id %>">Edit</a></td>
+                                    <td>                                    
+                                        <form action="/items/<%= item._id %>?_method=DELETE" method="POST">
+                                            <input class="waves-effect waves-light btn" type="submit" value="Delete" />
+                                        </form>
+                                    </td>
                                 </tr>
                             <% }) %>
                             </tbody>
@@ -69,32 +73,31 @@
 
                         </div>   
                         <div class="col s6">
-                            <div><a class="waves-effect waves-light btn" href="/items/new">Create a new Item</a></div> 
+                            <div><a class="waves-effect waves-light btn" href="/jobs/new">Create a Job listing</a></div> 
                         </br>
-                        <div>You currently have the following visible Items:</div> 
+                        <div>You currently have the following visible Jobs:</div> 
  
                         <table>
                             <thead>
                               <tr>
-                                  <th>Name</th>
-                                  <th>Type</th>
-                                  <th>Location</th>
-                                  <th>Price</th>
+                                  <th>Title</th>
+                                  <th>Company</th>
+                                  <th>Description</th>
+                                  <th>Date</th>
                                   <th></th>
                                   <th></th> 
                             </thead>
                     
                             <tbody>
-                            <% items.forEach((item, i) => { %>
                                 <tr>
-                                    <td><%= item.name %></td>
-                                    <td><%= item.items_type %></td>
-                                    <td><%= item.location %></td>
-                                    <td><%= item.price %></td>
-                                    <td><a class="waves-effect waves-light btn" href="/">Update</a></td>
+                                    <td>123</td>
+                                    <td>222</td>
+                                    <td>333</td>
+                                    <td>444</td>
+                                    <td><a class="waves-effect waves-light btn" href="/">Edit</a></td>
                                     <td><a class="waves-effect waves-light btn" href="/">Delete</a></td>
                                 </tr>
-                            <% }) %>
+
                             </tbody>
                           </table>
 
