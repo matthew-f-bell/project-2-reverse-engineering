@@ -21,79 +21,40 @@
                 </ul>
               </div>
         </nav>
-
-	
-			<!-- <ul>
-				<li>
-					<a href="/">home</a>
-				</li>
-				<li>
-					<a href="/jobs">List Job listing</a>
-				</li>
-				<li>
-					<a href="/jobs/edit">Edit a Job listing </a>
-				</li>
-			</ul> -->
-	
-		<div class="row">
-			<h1>Edit <%= item.name %></h1>
-		<form action="/items/<%= item._id %>?_method=PUT" method="POST">
-			<input type="text" name="name" value="<%= item.name %>" />
-				<div class="row">
-					<div class="input-field col s12">
-						<input name="Company" id="name" type="text" class="validate">
-						<label for="name">Company</label>
-					</div>
-				</div>
-				
-			<div class="row">
-				<div class="input-field col s12">
-					<input name="description" id="description" type="text" class="validate">
-					<label for="description">Job description</label>
-				</div>
-			</div>
-				<div class="row">
-					<div class="input-field col s12">
-						<input name="location" id="location" type="text" class="validate">
-						<label for="location">Date</label>
-					</div>
-				</div>
-				<div class="row">
-					<div class="input-field col s12">
-						<textarea name="Date" id="Date" class="materialize-textarea"></textarea>
-						<label for="Date">items_description</label>
-					</div>
-				</div>
-				<div>
-					<label>Description</label><br/>
-					<textarea type="text" name="description" rows="7" cols="30"></textarea><br>
-						<input type="submit" value="Update" />
-				</div>
-			</form>
-		</div>
-	</div>  
-	</main>
-
-
-
 		<main>
-			<h1>Edit <%= job.title %></h1>
-			<form action="/jobs/<%= job._id %>?_method=PUT" method="POST">
-				<input type="text" name="title" value="<%= job.title %>" />
-                <div>
-                    <label>Company</label><br>
-                    <input type="text" name="company"><br> 
+			<div class="container">
+		<div class="row">
+			<div class="row">
+                <form action="/jobs/<%= job._id %>?_method=PUT" method="POST" class="col s12">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input name="name" id="name" type="text" class="validate">
+                        <label for="name">Job Title</label>
+                    </div>
+                </div> 
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input name="Company" id="Company" type="text" class="validate">
+                        <label for="Company">Company</label>
+                    </div>
                 </div>
-                <div>
-                    <label>Description</label><br>
-                    <input type="text" name="description"><br>
-                </div>
-                <div>
-                    <label>Date</label><br/>
-                    <textarea type="text" name="date" rows="7" cols="30"></textarea><br>
-						<input type="submit" value="Update" />
-                </div>
-			</form>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input name="Job_description" id="Job_description" type="text" class="validate">
+                            <label for="Job_description">Job description</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input name="date" id="date" type="text" class="validate">
+                            <label for="date">Date</label>
+                        </div>
+                    </div>
+					<input type="submit" value="Update" />
+					</form>
+				</div>
+				</div>
+			</form> 
 		</main>
 	</body>
 </html>
