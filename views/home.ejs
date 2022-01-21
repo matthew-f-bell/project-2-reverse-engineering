@@ -18,12 +18,37 @@
                 <% } else { %>
                     <a href="/auth/google"><i>vpn_key</i>Login with Google</a>
                 <% } %>
-                <ul>
-                    <a href="/items">Items For Sale</a>
-                    <a href="/jobs">Job Listings</a>
-                </ul>
         </div>
-    </nav>
+        </nav>
+                <form>
+                    <div>
+                        <h3 id="header">Welcome to Craigslist!</h3>
+                        <div>
+                            <label>Username<span class="required">*</span></label><br>
+                            <input type="text" name="username"><br>
+                        </div>
+                        <div>
+                            <label>Password<span class="required">*</span></label><br>
+                            <input type="text" name="password"><br> 
+                            <button type="submit">Log-in</button>
+                        </div>
+                    </div>
+                </form>
+                <section>
+                    <div class="container-1">
+                        <h4>Current Jobs</h4>
+                        <ul>
+                            <li><a href="/jobs">Job Listing</a></li>
+                        </ul>
+                    </div>
+                    <div class="container-2">
+                        <h4>Current Items for Sale</h4>
+                            <ol>
+                                <li><a href="/items">Items for Sale</a></li>
+                            </ol>
+                    </div>
 
+                </section>     
 </body>
 </html>
+

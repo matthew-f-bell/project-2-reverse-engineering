@@ -11,6 +11,4 @@ router.post("/", ctrl.items.create);
 router.get("/:id/edit", ctrl.items.edit);
 router.get("/:id", ctrl.items.show);
 
-
-
 module.exports = router;

@@ -9,13 +9,6 @@ const index = (req, res) => {
     });
 };
 
-
-// newJob
-
-const newJob = (req, res) => {
-	res.render("jobs/new");
-};
-
 // show
 
 const show = (req, res) => {
@@ -29,6 +22,12 @@ const show = (req, res) => {
 	});
 };
 
+// newJob
+
+const newJob = (req, res) => {
+	res.render("jobs/new");
+};
+
 // create
 const create = (req, res) => {
 	db.Job.create(req.body, (err, createdJob) => {
@@ -37,6 +36,8 @@ const create = (req, res) => {
 		return res.redirect("/jobs");
 	});
 };
+
+
 
 // Edit
 
@@ -76,14 +77,27 @@ const destroy = (req, res) => {
 	});
 };
 
+// for testing - delete after use
+
+const showJobs = (req, res) => {
+    db.Job.find({},(err, allJobs) => {
+        if (err) return res.send(err);
+        const context = { jobs: allJobs, user: req.user };
+        return res.render("jobs/show", context);
+    });
+};
+
+
 
 module.exports = {
     index,
     newJob,
     create,
+	showJobs,
     show,
     edit,
     update,
     destroy,
+	
 
 }

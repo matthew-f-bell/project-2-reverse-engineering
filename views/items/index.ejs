@@ -15,10 +15,19 @@
 			<% } else { %>
 				<a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a>
 			<% } %>
-		</nav>
 
-			<h1 class="Item-header">List of Items for Sale!</h1>
+		</nav>
+		<h1 class="Item-header">List of Items</h1>
+			<ul>
+				<li>
+					<a href="/items">List of Items for Sale</a>
+				</li>
+				<li>
+					<a href="/items/new">Post an Item to Sell</a>
+				</li>
+			</ul>
 			<a href ="/"> Back to Home</a>
+			
 			<div class="item-div">
 				<% items.forEach((item, i) => { %>
 					<div class="itemList">

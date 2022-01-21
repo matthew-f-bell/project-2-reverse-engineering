@@ -9,27 +9,30 @@
 </head>
 <body>
 <main>
+    <nav>
+        <ul>
+            <li>
+                <a href="/jobs">List of Jobs</a>
+            </li>
+        
+        </ul>
+    </nav>
     <form>
         <div>
-            <h3 id="header">Create Item for Sale</h3>
+            <h3 id="header">Add a Job listing</h3>
             <div>
-                <label>What would you like to sell?<span class="required">*</span></label><br>
-                <input type="text" name="itemName"><br>
+                <label>Job Title:</label><br>
+                <input type="text" name="jobTitle"><br>
             </div>
             <div>
-                <label>Price<span class="required">*</span></label><br>
-                <input type="text" name="price"><br> 
+                <label>Company:</label><br>
+                <input type="text" name="jobCompany"><br>
             </div>
             <div>
-                <label>Type of Item</label><br>
-                <input type="text" name="itemType"><br>
-            </div>
-            <div>
-                <label>Description</label><br/>
+                <label>Job Description:</label><br/>
                 <textarea type="text" name="description" rows="7" cols="30"></textarea><br>
                 <button type="submit">Create Post</button>
             </div>
-            <p><span class="required">*</span>Required field</p>
         </div>
     </form>
 </main>
