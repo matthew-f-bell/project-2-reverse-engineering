@@ -15,14 +15,28 @@
 			<% } else { %>
 				<a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a>
 			<% } %>
+
 		</nav>
 
-			<h1 class="Item-header">List of Items for Sale!</h1>
-			<form action="/quotes" method="POST">
-				<input type="text" placeholder="" name="name">
-				<input type="text" placeholder="" name="quote">
+		<h1>List of Items</h1>
+			<ul>
+				<li>
+					<a href="/items">List of Items for Sale</a>
+				</li>
+				<li>
+					<a href="/items/new">Add an Item to Sell</a>
+				</li>
+			</ul>
+
+			<!-- <h1 class="Item-header">List of Items for Sale!</h1>
+			<form action="/items" method="POST">
+				<input type="text" placeholder="Item name" name="name">
+				<input type="text" placeholder="Item type" name="name">
+				<input type="text" placeholder="Item description" name="name">
+				<input type="text" placeholder="Item location" name="name">
+				<input type="text" placeholder="Item price" name="name">
 				<button type="submit">Submit</button>
-			  </form>
+			  </form> -->
 			<a href ="/"> Back to Home</a>
 			
 			<div class="item-div">

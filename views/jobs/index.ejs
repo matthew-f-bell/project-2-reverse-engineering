@@ -11,9 +11,18 @@
 	<body>
 		<nav>
 			<h1 class="Job-header">Job Listing!</h1>
-			<a href ="/"> Back to Home</a>
-			<div class="job-div">
-				<% jobs.forEach((job, i) => { %>
+				<h1>List of Jobs</h1>
+				<ul>
+					<li>
+						<a href="/jobs">List of Jobs</a>
+					</li>
+					<li>
+						<a href="/jobs/new">Post a Job</a>
+					</li>
+				</ul>
+					<a href ="/"> Back to Home</a>
+					<div class="job-div">
+						<% jobs.forEach((job, i) => { %>
 					<div class="jobList">
 						<tr>
 							<td><%= job.title %></td>

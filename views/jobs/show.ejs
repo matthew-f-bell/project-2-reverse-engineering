@@ -4,7 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Job Listing<%= job.title %></title>
+		<title>Job Listing</title>
 	</head>
 	<body>
 		<nav>
@@ -14,23 +14,21 @@
 					<a href="/jobs">List of Jobs</a>
 				</li>
 				<li>
-					<a href="/jobs/new">Post a Job</a>
+					<a href="/jobs/new">Add a Job</a>
 				</li>
 			</ul>
 		</nav>
 		<main>
 			<section>
 				<h2>Job Info</h2>
-				<a href="/jobs/<%=job._id %>/edit">Edit</a>
+				<a href="/jobs/">Edit</a>
 				<ul>
-					<li>Title: <%= job.title %></li>
+					<li>Title: </li>
 					<li>Job Listings:</li>
-					<% jobs.forEach(job => { %>
-						<li><%=job.title %></li>
-					<% }) %>
+					
 				</ul>
 			</section>
-			<form action="/jobs/<%= job._id %>?_method=DELETE" method="POST">
+			<form action="/jobs?_method=DELETE" method="POST">
 				<input type="submit" value="Delete" />
 			</form>
 		</main>

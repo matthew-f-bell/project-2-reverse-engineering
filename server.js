@@ -11,6 +11,7 @@ const passport = require("passport");
 const routes = require("./routes");
 
 /* ==== Instanced Modules ==== */
+// const bodyParser = require("body-parser");
 const app = express();
 
 /* ==== Configuration ==== */
@@ -24,6 +25,7 @@ app.use(express.urlencoded({ extended: true}));
 app.use(methodOverride("_method"));
 // serve public files
 app.use(express.static("public"));
+app.use(express.json());
 // logger
 app.use((req, res, next) => {
     console.log(req.url, req.method);
