@@ -12,18 +12,13 @@
     <form>
         <div>
             <h3 id="header">Create Item for Sale</h3>
-            <div>
-                <label>What would you like to sell?<span class="required">*</span></label><br>
-                
-                <input type="text" name="itemName"><br>
-            </div>
             <form action="/items" method="POST">
                 <input type="text" placeholder="name" name="name">
                 <input type="text" placeholder="" name="">
                 <button type="submit">Submit</button>
               </form>
             <div>
-                <label>Price<span class="required">*</span></label><br>
+                <label>Price</label><br>
                 <input type="text" name="price"><br> 
             </div>
             <div>
@@ -35,7 +30,6 @@
                 <textarea type="text" name="description" rows="7" cols="30"></textarea><br>
                 <button type="submit">Create Post</button>
             </div>
-            <p><span class="required">*</span>Required field</p>
         </div>
     </form>
 </main>

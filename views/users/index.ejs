@@ -50,26 +50,27 @@
                         <div class="col s6">
                             <div><a href="/items/new">Create a new Item</a></div> 
                         <div>You have created the following Items</div> 
-                        <ul class="">
+                        <% items.forEach((item, i) => { %>
+                            <div class="itemList">
+                                <ul>
+                                    <li class="collection-item"><%= item.name %><%= item.items_type %></li>
+                                    <li><%= item.items_type %></li>
+                                    <li><%= item.items_description %></li>
+                                    <li><%= item.location %></li>
+                                    <li><%= item.price %></li>
+                                    <li><%= item.user_id %></li>
+                                    <li><a href="/items/<%= item._id %>">DETAILS</a></li>
+                                </ul>
+                            </div>
+                        <% }) %>
+                        <!-- <ul class="">
                             <li class="collection-item">1</li>
                             <li class="collection-item">2</li>
                             <li class="collection-item">3</li>
                             <li class="collection-item">4</li>
-                          </ul>  
+                          </ul>   -->
  
-                          <% items.forEach((item, i) => { %>
-                            <div class="itemList">
-                                <tr>
-                                    <td><%= item.name %></td>
-                                    <td><%= item.items_type %></td>
-                                    <td><%= item.items_description %></td>
-                                    <td><%= item.location %></td>
-                                    <td><%= item.price %></td>
-                                    <td><%= item.user_id %></td>
-                                    <td><a href="/items/<%= item._id %>">DETAILS</a></td>
-                                  </tr>
-                            </div>
-                        <% }) %>
+                          
  
                         </div>  
                       </div>
