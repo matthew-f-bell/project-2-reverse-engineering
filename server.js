@@ -58,6 +58,7 @@ app.get((req, res) => {
 app.use("/", routes.googleOAuth);
 app.use("/items", routes.items);
 app.use("/jobs", routes.jobs);
+app.use("/users", routes.users);
 
 /* ==== Server bind ==== */
 app.listen(PORT, () => {
