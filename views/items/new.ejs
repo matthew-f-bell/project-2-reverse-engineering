@@ -14,16 +14,22 @@
             
 </head>
 <body>
-
-    <nav>
-       <h4>Provide the following information to create a listing to sell and Item</h4>
-    </nav>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="/" class="brand-logo">Craigs List</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                  <li><a href="/search">Search</a></li>
+                  <li><a href="/logout">Log Out</a></li>
+                </ul>
+              </div>
+        </nav>
     <main>
             <div class="container">
                 
                 <div class="row">
                     <form action="/items" method="POST" class="col s12">
                         <div class="row">
+                            <h6>Provide the following information to create an Item to sell</h6>
                             <div class="input-field col s12">
                                 <input name="name" id="name" type="text" class="validate">
                                 <label for="name">Item Name</label>
@@ -51,10 +57,9 @@
                         <div class="row">
                             <div class="input-field col s12">
                                 <textarea name="items_description" id="items_description" class="materialize-textarea"></textarea>
-                                <label for="items_description">items_description</label>
+                                <label for="items_description">Item description</label>
                             </div>
                         </div>
-                        
                         <input type="submit" value="Create" />
                     </form>
                 </div>

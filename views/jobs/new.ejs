@@ -6,23 +6,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Job posting</title>
     <link rel="stylesheet" href="../public/css/styles.css">
+     <!-- Compiled and minified CSS -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+     <!-- Compiled and minified JavaScript -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+             
 </head>
 <body>
     <nav>
-        <!-- <ul>
-            <li>
-                <a href="/jobs/new">Post a Job</a>
-            </li>
-        </ul> -->
+        <div class="nav-wrapper">
+            <a href="/" class="brand-logo">Craigs List</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+              <li><a href="/search">Search</a></li>
+              <li><a href="/logout">Log Out</a></li>
+            </ul>
+          </div>
     </nav>
     <main>
-		<form action="/jobs" method="POST">
-			<input type="text" title="title" placeholder="Job title" />
-            <input type="text" company="company" placeholder="Job company" />
-            <input type="text" description="description" placeholder="Job description" />
-            <input type="text" date="date" placeholder="Date" />
-			<input type="submit" value="Create" />
-		</form>
+        <div class="container">
+            <div class="row">
+                <form action="/jobs" method="POST" class="col s12">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input name="name" id="name" type="text" class="validate">
+                        <label for="name">Job Title</label>
+                    </div>
+                </div> 
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input name="Company" id="Company" type="text" class="validate">
+                        <label for="Company">Company</label>
+                    </div>
+                </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input name="Job_description" id="Job_description" type="text" class="validate">
+                            <label for="Job_description">Job description</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input name="date" id="date" type="text" class="validate">
+                            <label for="date">Date</label>
+                        </div>
+                    </div>
+                    <input type="submit" value="Create" />
+                </form>
+            </div>
+        </div>
 	</main>
 </body>
 </html>
