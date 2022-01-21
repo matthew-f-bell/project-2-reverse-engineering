@@ -11,8 +11,9 @@ const index = (req, res, next) => {
 
 // newItem
 
-const newItem = (req, res) => {
-	res.render("items/new");
+const newItem = (req, res, next) => {
+	const context = { user: req.user };
+	return res.render("items/new", context);
 };
 
 // show

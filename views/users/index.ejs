@@ -31,47 +31,73 @@
       </nav>
                 <form>
                     <div>
-                        <h5 id="header">Welcome <%= user.name %>!</h5>
+                        <h5 id="header">Welcome back <%= user.name %>!</h5>
                         <p>The following are your current posts:</p>
                     </div>
                 </form>   
                 <div class="container">
                     <div class="row">
                         <div class="col s6">
-                            <div><a href="/jobs/new">Create a new Job</a></div> 
-                        <div>You have created the following Jobs</div> 
-                        <ul class="">
-                            <li class="collection-item">1</li>
-                            <li class="collection-item">2</li>
-                            <li class="collection-item">3</li>
-                            <li class="collection-item">4</li>
-                          </ul>  
-                        </div>    
+                            <div><a class="waves-effect waves-light btn" href="/items/new">Create a new Item</a></div> 
+                        </br>
+                        <div>You currently have the following visible Items:</div> 
+ 
+                        <table>
+                            <thead>
+                              <tr>
+                                  <th>Name</th>
+                                  <th>Type</th>
+                                  <th>Location</th>
+                                  <th>Price</th>
+                                  <th></th>
+                                  <th></th> 
+                            </thead>
+                    
+                            <tbody>
+                            <% items.forEach((item, i) => { %>
+                                <tr>
+                                    <td><%= item.name %></td>
+                                    <td><%= item.items_type %></td>
+                                    <td><%= item.location %></td>
+                                    <td><%= item.price %></td>
+                                    <td><a class="waves-effect waves-light btn" href="/">Update</a></td>
+                                    <td><a class="waves-effect waves-light btn" href="/">Delete</a></td>
+                                </tr>
+                            <% }) %>
+                            </tbody>
+                          </table>
+
+                        </div>   
                         <div class="col s6">
-                            <div><a href="/items/new">Create a new Item</a></div> 
-                        <div>You have created the following Items</div> 
-                        <% items.forEach((item, i) => { %>
-                            <div class="itemList">
-                                <ul>
-                                    <li class="collection-item"><%= item.name %><%= item.items_type %></li>
-                                    <li><%= item.items_type %></li>
-                                    <li><%= item.items_description %></li>
-                                    <li><%= item.location %></li>
-                                    <li><%= item.price %></li>
-                                    <li><%= item.user_id %></li>
-                                    <li><a href="/items/<%= item._id %>">DETAILS</a></li>
-                                </ul>
-                            </div>
-                        <% }) %>
-                        <!-- <ul class="">
-                            <li class="collection-item">1</li>
-                            <li class="collection-item">2</li>
-                            <li class="collection-item">3</li>
-                            <li class="collection-item">4</li>
-                          </ul>   -->
+                            <div><a class="waves-effect waves-light btn" href="/items/new">Create a new Item</a></div> 
+                        </br>
+                        <div>You currently have the following visible Items:</div> 
  
-                          
- 
+                        <table>
+                            <thead>
+                              <tr>
+                                  <th>Name</th>
+                                  <th>Type</th>
+                                  <th>Location</th>
+                                  <th>Price</th>
+                                  <th></th>
+                                  <th></th> 
+                            </thead>
+                    
+                            <tbody>
+                            <% items.forEach((item, i) => { %>
+                                <tr>
+                                    <td><%= item.name %></td>
+                                    <td><%= item.items_type %></td>
+                                    <td><%= item.location %></td>
+                                    <td><%= item.price %></td>
+                                    <td><a class="waves-effect waves-light btn" href="/">Update</a></td>
+                                    <td><a class="waves-effect waves-light btn" href="/">Delete</a></td>
+                                </tr>
+                            <% }) %>
+                            </tbody>
+                          </table>
+
                         </div>  
                       </div>
                   </div>
