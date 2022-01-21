@@ -8,16 +8,32 @@
 
 		<%- include('../partials/nav.ejs') %>
 
-			<h1 class="Item-header">List of Items for Sale!</h1>
+		</nav>
+		<h1 class="Item-header">List of Items</h1>
+			<ul>
+				<li>
+					<a href="/items">List of Items for Sale</a>
+				</li>
+				<li>
+					<a href="/items/new">Post an Item to Sell</a>
+				</li>
+			</ul>
 			<a href ="/"> Back to Home</a>
+			
 			<div class="item-div">
 				<% items.forEach((item, i) => { %>
 					<div class="itemList">
-						<h4><%= item.name %></h4>
-						<a href="/items<%= i %>">
-						</a>
+						<tr>
+							<td><%= item.name %></td>
+							<td><%= item.items_type %></td>
+							<td><%= item.items_description %></td>
+							<td><%= item.location %></td>
+							<td><%= item.price %></td>
+							<td><a href="/items/<%= item._id %>">DETAILS</a></td>
+						  </tr>
 					</div>
 				<% }) %>
-				</div> 
+			</div> 
+		</nav>
 	</body>
 </html>

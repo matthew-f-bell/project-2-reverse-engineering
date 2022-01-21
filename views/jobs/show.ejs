@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<%- include('../partials/head.ejs') %>
+		<title>Job Listing</title>
+	</head>
+	<body>
+		<%- include('../partials/nav.ejs') %>
+		<main>
+			<h1>List of Jobs</h1>
+			<section>
+				<h2>Job Info</h2>
+				<a href="/jobs/">Edit</a>
+				<ul>
+					<li>Title: </li>
+					<li>Job Listings:</li>
+					
+				</ul>
+			</section>
+			<form action="/jobs?_method=DELETE" method="POST">
+				<input type="submit" value="Delete" />
+			</form>
+		</main>
+	</body>
+</html>

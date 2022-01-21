@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head.ejs') %>
+    <title>New Job posting</title>
+</head>
+<body>
+    <%- include('../partials/nav.ejs') %>
+    <main>
+		<form action="/jobs" method="POST">
+			<input type="text" title="title" placeholder="Job title" />
+            <input type="text" company="company" placeholder="Job company" />
+            <input type="text" description="description" placeholder="Job description" />
+            <input type="text" date="date" placeholder="Date" />
+			<input type="submit" value="Create" />
+		</form>
+	</main>
+</body>
+</html>

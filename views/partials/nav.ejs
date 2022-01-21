@@ -1,15 +1,28 @@
 <nav>
     <div>
-            <a href="/" class="site-name">Craig'slist</a>
+        <ul>
+            <li>
+                <a href="/" class="site-name">Craig'slist</a>
+            </li>
+            <li>
             <a href="/search">Search</a>
-            <% if (user) { %>
-                <a href="/logout"><i>trending_flat</i>Log Out</a>
-            <% } else { %>
-                <a href="/auth/google"><i>vpn_key</i>Login with Google</a>
-            <% } %>
-            <ul>
+            </li>
+            <li>
                 <a href="/items">For Sale</a>
+            </li>
+            <li>
                 <a href="/jobs">Job Listing</a>
-            </ul>
+            </li>
+            <% if (user) { %>
+                <li>
+                    <a href="/logout"><i class="material-icons left">trending_flat</i>Log Out</a>
+                </li>
+            <% } else { %>
+                <li>
+                    <a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a>
+                </li>
+            <% } %>
+        
+        </ul>
     </div>
 </nav>
