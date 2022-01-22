@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 	<head>
 		<%- include('../partials/head.ejs') %>
 		<title>Job Listing</title>
@@ -10,18 +10,16 @@
 			<h1>List of Jobs</h1>
 			<section>
 				<h2>Job Info</h2>
-				<a href="/jobs/">Edit</a>
+				<a href="/jobs/<%= jobs._id %>/edit">Edit</a>
 				<ul>
 					<li>Title: <%= jobs.title %></li>
 					<li>Company: <%= jobs.company %></li>
 					<li>Description: <%= jobs.description %></li>
 					<li>Poster: <%= jobs.user.name %></li>
-					<li>Job Listings:</li>
-					
 				</ul>
 			</section>
-			<form action="/jobs?_method=DELETE" method="POST">
-				<input type="submit" value="Delete" />
+			<form action="/jobs/<%= jobs.id %>?_method=DELETE" method="POST">
+				<input type="submit" value="Delete Job Listing" />
 			</form>
 		</main>
 	</body>

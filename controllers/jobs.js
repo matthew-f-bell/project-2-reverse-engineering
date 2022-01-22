@@ -1,22 +1,22 @@
 const db = require("../models");
 
-
+// index
 const index = (req, res) => {
-    db.Job.find({},(err, allJobs) => {
+    db.Job.find({},(err, foundJobs) => {
         if (err) return res.send(err);
-        const context = { jobs: allJobs, user: req.user };
-        return res.render("jobs/index", context);
+        const context = { jobs: foundJobs, user: req.user };
+        res.render("jobs/index", context);
     });
 };
 
 
-// newJob
+// new Job
 
 const newJob = (req, res) => {
 	db.User.find({}, (err, foundJobs) => {
 		if (err) return res.send(err);
 		const context = { jobs: foundJobs, user: req.user };
-		return res.render("jobs/new", context);
+		res.render("jobs/new", context);
 	})
 };
 
@@ -24,13 +24,14 @@ const newJob = (req, res) => {
 // show
 
 const show = (req, res) => {
+	console.log(req.params.id);
 	db.Job.findById(req.params.id)
 		.populate("user")
-		.exec((err, foundJob)=> {
+		.exec((err, foundJob) => {
 			if(err) return res.send(err);
-			const context = {jobs: foundJob, user: req.user};
-		    return res.render("jobs/show", context)
-	});
+			const context = {jobs: foundJob, user: req.user,};
+		    res.render("jobs/show", context)
+	})
 };
 
 
@@ -38,7 +39,7 @@ const show = (req, res) => {
 const create = (req, res) => {
 	db.Job.create(req.body, (err, createdJob) => {
 		if (err) return res.send(err);
-		db.User.findById(createdJob.user_id)
+		db.User.findById(createdJob.user)
 			.exec(function(err, foundUser) {
 				if(err) return res.send(err);
 				foundUser.jobs.push(createdJob)
@@ -53,9 +54,9 @@ const create = (req, res) => {
 // Edit
 
 const edit = (req, res) => {
-	db.Job.findById(req.body._id, (err, foundJob) => {
+	db.Job.findById(req.params.id, (err, foundJob) => {
 		if (err) return res.send(err);
-		const context = { job: foundJob };
+		const context = { jobs: foundJob, user: req.user };
 	    res.render("jobs/edit", context);
 	});
 };
@@ -70,9 +71,7 @@ const update = (req, res) => {
 		{ new: true },
 		(err, updatedJob) => {
 			if (err) return res.send(err);
-			res.redirect(`/jobs`);
-
-			// res.redirect(`/jobs/${updatedJob._id}`);
+			res.redirect(`/jobs/${updatedJob._id}`);
 		}
 	);
 };

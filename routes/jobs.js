@@ -9,8 +9,8 @@ const ctrl = require("../controllers");
 router.get("/", ctrl.jobs.index);
 router.get("/new", ctrl.jobs.newJob);
 router.get("/:id", ctrl.jobs.show);
-router.post("/", ctrl.jobs.create);
 router.get("/:id/edit", ctrl.jobs.edit);
+router.post("/", ctrl.jobs.create);
 router.put("/:id", ctrl.jobs.update);
 router.delete("/:id", ctrl.jobs.destroy);
 

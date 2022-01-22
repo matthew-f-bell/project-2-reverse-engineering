@@ -36,11 +36,14 @@
                         </div>
                     </div>
                     <div class="row">
+                        <% if(!user) { %>
+                            <p>Please Log In</p>
+                        <% } %>
                         <div class="input-field col s12">
-                            <input name="user_id" id="user_id" type="hidden" value="<%= user._id %>" class="validate">
+                            <input name="user" id="user" type="hidden" value="<%= user._id %>">
                         </div>
                     </div>
-                    <input type="submit" value="Create" />
+                    <input type="submit" value="Create Listing" />
                 </form>
             </div>
         </div>
