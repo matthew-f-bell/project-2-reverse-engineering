@@ -21,11 +21,11 @@ const newItem = (req, res,) => {
 const show = (req, res) => {
 	console.log("ItemsController>Show>Param:" + req.params.id);
 	db.Item.findById(req.params.id)
-		.populate("user")
+		// .populate("user")
 		.exec((err, foundItem)=> {
 			if(err) return res.send(err);
 			console.log(foundItem);
-			const context = {item: foundItem};
+			const context = {item: foundItem, user: req.user};
 		    return res.render("items/show", context)
 	});
 };
@@ -36,7 +36,7 @@ const create = (req, res) => {
 	db.Item.create(req.body, (err, createdItem) => {
 		if (err) return res.send(err);
 
-		return res.redirect("/items");
+		return res.redirect("/users");
 	});
 };
 
@@ -60,7 +60,7 @@ const update = (req, res) => {
 		{ new: true },
 		(err, updatedItem) => {
 			if (err) return res.send(err);
-			res.redirect(`/items/${updatedItem._id}`);
+			res.redirect(`/users`);
 		}
 	);
 };
