@@ -1,33 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <script defer src="script.js"></script>
-        <link rel="stylesheet" href="../public/css/style.css"/>
+		<%- include('../partials/head.ejs') %>
 		<title>Items for sale</title>
 	</head>
 	<body>
-		<nav>
-			<% if (user) { %>
-				<a href="/logout"><i class="material-icons left">trending_flat</i>Log Out</a>
-			<% } else { %>
-				<a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a>
-			<% } %>
-
-		</nav>
+		<%- include('../partials/nav.ejs') %>
 		<h1 class="Item-header">List of Items</h1>
 			<ul>
-				<li>
-					<a href="/items">List of Items for Sale</a>
-				</li>
 				<li>
 					<a href="/items/new">Post an Item to Sell</a>
 				</li>
 			</ul>
-			<a href ="/"> Back to Home</a>
-			
 			<div class="item-div">
 				<% items.forEach((item, i) => { %>
 					<div class="itemList">
@@ -42,6 +26,5 @@
 					</div>
 				<% }) %>
 			</div> 
-		</nav>
 	</body>
 </html>
