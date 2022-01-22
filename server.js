@@ -15,7 +15,7 @@ const bodyParser = require("body-parser");
 const app = express();
 
 /* ==== Configuration ==== */
-
+const PORT = process.env.PORT || 5000;
 app.set("view engine", "ejs");
 
 /* ==== Middleware ==== */
@@ -66,7 +66,7 @@ app.use("/jobs", routes.jobs);
 app.use("/users", routes.users);
 
 /* ==== Server bind ==== */
-app.listen(process.env.PORT || 5000, () => {
+app.listen(PORT, () => {
     console.log(`I am a little working server on http://localhost:${PORT}`);
 });
 
