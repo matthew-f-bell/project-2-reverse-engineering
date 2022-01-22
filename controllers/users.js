@@ -6,7 +6,6 @@ const index = (req, res, next) => {
         const context = { items: allItems, user: req.user };
         return res.render("users/index", context);
     });
-
 };
 
 

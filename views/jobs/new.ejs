@@ -13,8 +13,8 @@
                 <div class="row">
                     <h5>Provide the following information to create a job listing. </h5>
                     <div class="input-field col s12">
-                        <input name="name" id="name" type="text" class="validate">
-                        <label for="name">Job Title</label>
+                        <input name="title" id="title" type="text" class="validate">
+                        <label for="title">Job Title</label>
                     </div>
                 </div> 
                 <div class="row">
@@ -25,14 +25,19 @@
                 </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <input name="job_description" id="job_description" type="text" class="validate">
-                            <label for="job_description">Job description</label>
+                            <input name="description" id="escription" type="text" class="validate">
+                            <label for="description">Job description</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <input name="date" id="date" type="text" class="validate">
+                            <input name="date" id="date" type="date" class="validate">
                             <label for="date">Date</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input name="user_id" id="user_id" type="hidden" value="<%= user._id %>" class="validate">
                         </div>
                     </div>
                     <input type="submit" value="Create" />
