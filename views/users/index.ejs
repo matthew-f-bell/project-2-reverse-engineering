@@ -20,6 +20,7 @@
         <div class="nav-wrapper">
           <a href="/" class="brand-logo">Craigs List</a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href ="/"> Back to Home</a></li>
             <li><a href="/search">Search</a></li>
             <% if (user) { %>
                 <li><a href="/logout">Log Out</a></li>
@@ -29,81 +30,72 @@
           </ul>
         </div>
       </nav>
-                <form>
-                    <div>
-                        <h5 id="header">Welcome back <%= user.name %>!</h5>
-                        <p>The following are your current posts:</p>
-                    </div>
-                </form>   
-                <div class="container">
-                    <div class="row">
-                        <div class="col s6">
-                            <div><a class="waves-effect waves-light btn" href="/items/new">Create a new Item</a></div> 
-                        </br>
-                        <div>You currently have the following visible Items:</div> 
- 
-                        <table>
-                            <thead>
-                              <tr>
-                                  <th>Name</th>
-                                  <th>Type</th>
-                                  <th>Location</th>
-                                  <th>Price</th>
-                                  <th></th>
-                                  <th></th> 
-                            </thead>
-                    
-                            <tbody>
-                            <% items.forEach((item, i) => { %>
-                                <tr>
-                                    <td><%= item.name %></td>
-                                    <td><%= item.items_type %></td>
-                                    <td><%= item.location %></td>
-                                    <td><%= item.price %></td>
-                                    <td><a class="waves-effect waves-light btn" href="/items/<%= item._id %>">Edit</a></td>
-                                    <td>                                    
-                                        <form action="/items/<%= item._id %>?_method=DELETE" method="POST">
-                                            <input class="waves-effect waves-light btn" type="submit" value="Delete" />
-                                        </form>
-                                    </td>
-                                </tr>
-                            <% }) %>
-                            </tbody>
-                          </table>
+        <form>
+            <div>
+                <h5 id="header">Welcome back <%= user.name %>!</h5>
+                <p>The following are your current posts:</p>
+            </div>
+        </form>   
+            <div class="container">
+                <div class="row">
+                    <div class="col s6">
+                        <div><a class="waves-effect waves-light btn" href="/items/new">Create a new Item</a></div> 
+                    </br>
+                    <div>You currently have the following visible Items:</div> 
 
-                        </div>   
-                        <div class="col s6">
-                            <div><a class="waves-effect waves-light btn" href="/jobs/new">Create a Job listing</a></div> 
-                        </br>
-                        <div>You currently have the following visible Jobs:</div> 
- 
-                        <table>
-                            <thead>
-                              <tr>
-                                  <th>Title</th>
-                                  <th>Company</th>
-                                  <th>Description</th>
-                                  <th>Date</th>
-                                  <th></th>
-                                  <th></th> 
-                            </thead>
-                    
-                            <tbody>
-                                <tr>
-                                    <td>123</td>
-                                    <td>222</td>
-                                    <td>333</td>
-                                    <td>444</td>
-                                    <td><a class="waves-effect waves-light btn" href="/">Edit</a></td>
-                                    <td><a class="waves-effect waves-light btn" href="/">Delete</a></td>
-                                </tr>
-
-                            </tbody>
-                          </table>
-
-                        </div>  
-                      </div>
-                  </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Location</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <% items.forEach((item, i) => { %>
+                            <tr>
+                                <td><%= item.name %></td>
+                                <td><%= item.items_type %></td>
+                                <td><%= item.location %></td>
+                                <td><%= item.price %></td>
+                                <td><a class="waves-effect waves-light btn" href="/items/<%= item._id %>">Edit</a></td>
+                                <td><a class="waves-effect waves-light btn" href="/items/<%= item._id %>">Delete</a></td>                                  
+                                    <form action="/items/<%= item._id %>?_method=DELETE" method="POST"></form>
+                            </tr>
+                        <% }) %>
+                        </tbody>
+                        </table>
+                    </div>   
+                    <div class="col s6">
+                        <div><a class="waves-effect waves-light btn" href="/jobs/new">Create a new Job</a></div> 
+                    </br>
+                    <div>You currently have the following visible Jobs:</div> 
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Company</th>
+                                <th>Description</th>
+                                <th>Date</th>
+                            </tr> 
+                          </thead>
+                        <tbody>
+                        <% user.jobs.forEach((job, i) => { %>
+                            <tr>
+                                <td><%= job.title %></td>
+                                <td><%= job.company %></td>
+                                <td><%= job.description %></td>
+                                <td><%= job.date %></td>
+                                <td><a class="waves-effect waves-light btn" href="/user.jobs/<%= job._id %>">Edit</a></td>
+                                <td><a class="waves-effect waves-light btn" href="/user.jobs/<%= job._id %>">Delete</a></td>                                  
+                                    <form action="/jobs/<%= job._id %>?_method=DELETE" method="POST"></form>
+                            </tr>
+                        <% }) %>
+                        </tbody>
+                        </table>
+                    </div>    
+                </div>
+            </div>
 </body>
 </html>
-

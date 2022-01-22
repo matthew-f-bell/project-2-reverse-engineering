@@ -9,12 +9,21 @@ const index = (req, res) => {
     });
 };
 
+
+// newJob
+
+const newJob = (req, res) => {
+	const context = { user: req.user };
+	return res.render("jobs/new", context);
+};
+
+
 // show
 
 const show = (req, res) => {
 	console.log(req.params.id);
 	db.Job.findById(req.params.id)
-		.populate("jobs")
+		// .populate("jobs")
 		.exec((err, foundJob)=> {
 			if(err) return res.send(err);
 			const context = {job: foundJob};
@@ -22,18 +31,13 @@ const show = (req, res) => {
 	});
 };
 
-// newJob
-
-const newJob = (req, res) => {
-	res.render("jobs/new");
-};
 
 // create
 const create = (req, res) => {
 	db.Job.create(req.body, (err, createdJob) => {
 		if (err) return res.send(err);
 
-		return res.redirect("/jobs");
+		return res.redirect("/users");
 	});
 };
 
@@ -59,7 +63,9 @@ const update = (req, res) => {
 		{ new: true },
 		(err, updatedJob) => {
 			if (err) return res.send(err);
-			res.redirect(`/jobs/${updatedJob._id}`);
+			res.redirect(`/users`);
+
+			// res.redirect(`/jobs/${updatedJob._id}`);
 		}
 	);
 };
@@ -69,22 +75,12 @@ const update = (req, res) => {
 const destroy = (req, res) => {
 	db.Job.findByIdAndDelete(req.params.id, (err, deletedJob) => {
 		if (err) return res.send(err);
-		db.Job.findById(deletedJob, (err, foundJob) => {
-            foundJob.remove(deletedJob);
-            foundJob.save();
-            res.redirect("/jobs")
-        })
+		// db.Job.findById(deletedJob, (err, foundJob) => {
+            // foundJob.remove(deletedJob);
+            // foundJob.save();
+            res.redirect("/users")
+        // })
 	});
-};
-
-// for testing - delete after use
-
-const showJobs = (req, res) => {
-    db.Job.find({},(err, allJobs) => {
-        if (err) return res.send(err);
-        const context = { jobs: allJobs, user: req.user };
-        return res.render("jobs/show", context);
-    });
 };
 
 
@@ -92,9 +88,8 @@ const showJobs = (req, res) => {
 module.exports = {
     index,
     newJob,
+	show,
     create,
-	showJobs,
-    show,
     edit,
     update,
     destroy,
