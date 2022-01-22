@@ -1,7 +1,7 @@
 # project-2-reverse-engineering
 Collaboration Project to reverse engineer and redesign a website.
 
-Craigslist is one site which has not changed since it was developed. My partner and I decided to re-design the site. The link to our site is posted below. 
+Craigslist is one site which has not changed since it was developed. My partner and I decided to re-design the site. The link to our app is: https://project-2-reverse-engineer.herokuapp.com/
 
 ## User Story:
 
