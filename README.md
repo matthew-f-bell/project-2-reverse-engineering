@@ -7,7 +7,15 @@ Collaboration Project to reverse engineer and redesign a website
 
 ## Day 2
 * Created an ERD
-* <img width="698" alt="Screen Shot 2022-01-22 at 12 27 23 PM" src="https://user-images.githubusercontent.com/92559697/150651541-9d8b346f-7e0e-43fb-ad3b-67bd1b236867.png">
+
+ <img width="698" alt="Screen Shot 2022-01-22 at 12 27 23 PM" src="https://user-images.githubusercontent.com/92559697/150651541-9d8b346f-7e0e-43fb-ad3b-67bd1b236867.png">
+
+* User Flow:
+
+![image](https://user-images.githubusercontent.com/92559697/150653015-bd2b4b6a-84a8-4ea5-9faf-3390166d2b8b.png)
+
+
+
 
 * Created a wireframe at https://wireframe.cc/pro/pp/fc96a0cd4508840
 
