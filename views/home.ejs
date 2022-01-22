@@ -1,33 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script defer src="script.js"></script>
-    <link rel="stylesheet" href="../public/css/style.css"/>
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-            
+    <%- include('./partials/head.ejs') %>
     <title>Craigs List</title>
 </head>
 <body>
-    <nav>
-        <div class="nav-wrapper">
-          <a href="/" class="brand-logo">Craigs List</a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="/search">Search</a></li>
-            <% if (user) { %>
-                <li><a href="/logout">Log Out</a></li>
-            <% } else { %>
-                <li><a href="/auth/google">Login with Google</a></li>
-            <% } %>
-          </ul>
+    <%- include('./partials/nav.ejs') %>
+    <h3 class="center-align">Welcome to Craigslist!</h3>
+    <div class="row center-align">
+        <div class="col s3 offset-s2 center-align">
+            <h4>Current Jobs</h4>
+            <a href="/jobs">Job Listing</a>
         </div>
-      </nav>
+            
+        <div class="col s3 offset-s2 center-align">
+            <h4>Current Items</br>for Sale</h4>
+            <a href="/items">Items for Sale</a>
+        </div>
+    </div>     
+</body>
+
+
+<!-- <body>
+
+    <%- include('./partials/nav.ejs') %>
         <form>
             <div>
                 <h5 id="header">Welcome to Craigslist!</h5>
@@ -56,6 +52,6 @@
                 </div>  
                 </div>
             </div>
-    </body>
+    </body> -->
 </html>
 

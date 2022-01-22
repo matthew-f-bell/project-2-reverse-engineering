@@ -1,29 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Item</title>
-    <link rel="stylesheet" href="../public/css/styles.css">
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-            
+    <%- include('../partials/head.ejs') %>
 </head>
 <body>
-        <nav>
-            <div class="nav-wrapper">
-                <a href="/" class="brand-logo">Craigs List</a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><%= user.name %></li>
-                    <li><a href="/search">Search</a></li>
-                    <li><a href="/logout">Log Out</a></li>
-                </ul>
-              </div>
-        </nav>
+    <%- include('../partials/nav.ejs') %>
+    <nav>
+       <h5>Provide the following information to create a listing to sell and Item</h5>
+    </nav>
     <main>
             <div class="container">
                 <div class="row">
@@ -31,7 +15,7 @@
                         <div class="row">
                             <h5>What would you like to sell? </h5>
                             <div class="input-field col s12">
-                                <input name="user_id" type="hidden" value="<%= user.id %>">
+                                <input name="user_id" type="hidden" value="<%= user._id %>">
                                 <input name="name" id="name" type="text" class="validate">
                                 <label for="name">Item Name</label>
                             </div>

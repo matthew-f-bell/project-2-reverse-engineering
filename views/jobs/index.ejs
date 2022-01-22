@@ -1,46 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <script defer src="script.js"></script>
-        <link rel="stylesheet" href="../public/css/style.css"/>
+		<%- include('../partials/head.ejs') %>
 		<title>List of Jobs</title>
 	</head>
 	<body>
-		<nav>
-			<nav>
-				<% if (user) { %>
-					<a href="/logout"><i class="material-icons left">trending_flat</i>Log Out</a>
-				<% } else { %>
-					<a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a>
-				<% } %>
-			</nav>
-			<h4 class="Job-header">Job Listings</h4>
-				<ul>
-					<li>
-						<a href="/jobs">List of Jobs</a>
-					</li>
-					<li>
-						<a href="/jobs/new">Post a Job</a>
-					</li>
-				</ul>
-					<a href ="/"> Back to Home</a>
+		<%- include('../partials/nav.ejs') %>
 
-					<div class="job-div">
-						<% jobs.forEach((job, i) => { %>
-					<div class="jobList">
-						<ul>
-							<li><%= job.title %></li>
-							<li><%= job.company %></li>
-							<li><%= job.description %></li>
-							<li><%= job.date %></li>
-							<li><a href="/jobs/<%= job._id %>">DETAILS</a></li>
-						</ul>
-					</div>
-				<% }) %>
-			</div> 
-		</nav>
+		<h4 class="Job-header">Job Listings</h4>
+		<div class="job-div">
+			<% jobs.forEach((job, i) => { %>
+		<div class="jobList">
+			<tr>
+				<td><%= job.title %></td>
+				<td><%= job.company %></td>
+				<td><%= job.description %></td>
+				<td><%= job.date %></td>
+				<td><a href="/jobs/<%= job._id %>">DETAILS</a></td>
+			  </tr>
+		</div>
+	<% }) %>
+</div> 
 	</body>
 </html>

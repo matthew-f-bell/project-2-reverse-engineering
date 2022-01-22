@@ -1,24 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<%- include('../partials/head.ejs') %>
 		<title>Job Listing</title>
 	</head>
 	<body>
-		<nav>
-			<h1>List of Jobs</h1>
-			<ul>
-				<li>
-					<a href="/jobs">List of Jobs</a>
-				</li>
-				<li>
-					<a href="/jobs/new">Add a Job</a>
-				</li>
-			</ul>
-		</nav>
+		<%- include('../partials/nav.ejs') %>
 		<main>
+			<h1>List of Jobs</h1>
 			<section>
 				<h2>Job Info</h2>
 				<a href="/jobs/">Edit</a>
