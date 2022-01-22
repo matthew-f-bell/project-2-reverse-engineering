@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="../public/css/style.css"/>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            
+    <title>Craigs List</title>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-wrapper">
+          <a href="/" class="brand-logo">Craigs List</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="/search">Search</a></li>
+            <% if (user) { %>
+                <li><a href="/logout">Log Out</a></li>
+            <% } else { %>
+                <li><a href="/auth/google">Login with Google</a></li>
+            <% } %>
+          </ul>
+        </div>
+      </nav>
+                <form>
+                    <div>
+                        <h5 id="header">Welcome back <%= user.name %>!</h5>
+                        <p>The following are your current posts:</p>
+                    </div>
+                </form>   
+                <div class="container">
+                    <div class="row">
+                        <div class="col s6">
+                            <div><a class="waves-effect waves-light btn" href="/items/new">Create a new Item</a></div> 
+                        </br>
+                        <div>You currently have the following visible Items:</div> 
+ 
+                        <table>
+                            <thead>
+                              <tr>
+                                  <th>Name</th>
+                                  <th>Type</th>
+                                  <th>Location</th>
+                                  <th>Price</th>
+                                  <th></th>
+                                  <th></th> 
+                            </thead>
+                    
+                            <tbody>
+                            <% items.forEach((item, i) => { %>
+                                <tr>
+                                    <td><%= item.name %></td>
+                                    <td><%= item.items_type %></td>
+                                    <td><%= item.location %></td>
+                                    <td><%= item.price %></td>
+                                    <td><a class="waves-effect waves-light btn" href="/items/<%= item._id %>">Edit</a></td>
+                                    <td>                                    
+                                        <form action="/items/<%= item._id %>?_method=DELETE" method="POST">
+                                            <input class="waves-effect waves-light btn" type="submit" value="Delete" />
+                                        </form>
+                                    </td>
+                                </tr>
+                            <% }) %>
+                            </tbody>
+                          </table>
+
+                        </div>   
+                        <div class="col s6">
+                            <div><a class="waves-effect waves-light btn" href="/jobs/new">Create a Job listing</a></div> 
+                        </br>
+                        <div>You currently have the following visible Jobs:</div> 
+ 
+                        <table>
+                            <thead>
+                              <tr>
+                                  <th>Title</th>
+                                  <th>Company</th>
+                                  <th>Description</th>
+                                  <th>Date</th>
+                                  <th></th>
+                                  <th></th> 
+                            </thead>
+                    
+                            <tbody>
+                                <tr>
+                                    <td>123</td>
+                                    <td>222</td>
+                                    <td>333</td>
+                                    <td>444</td>
+                                    <td><a class="waves-effect waves-light btn" href="/">Edit</a></td>
+                                    <td><a class="waves-effect waves-light btn" href="/">Delete</a></td>
+                                </tr>
+
+                            </tbody>
+                          </table>
+
+                        </div>  
+                      </div>
+                  </div>
+</body>
+</html>
+

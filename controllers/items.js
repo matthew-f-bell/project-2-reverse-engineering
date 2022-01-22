@@ -11,19 +11,21 @@ const index = (req, res, next) => {
 
 // newItem
 
-const newItem = (req, res) => {
-	res.render("items/new");
+const newItem = (req, res,) => {
+	const context = { user: req.user };
+	return res.render("items/new", context);
 };
 
 // show
 
 const show = (req, res) => {
-	console.log(req.params.id);
+	console.log("ItemsController>Show>Param:" + req.params.id);
 	db.Item.findById(req.params.id)
-		.populate("items")
+		// .populate("user")
 		.exec((err, foundItem)=> {
 			if(err) return res.send(err);
-			const context = {item: foundItem};
+			console.log(foundItem);
+			const context = {item: foundItem, user: req.user};
 		    return res.render("items/show", context)
 	});
 };
@@ -34,7 +36,7 @@ const create = (req, res) => {
 	db.Item.create(req.body, (err, createdItem) => {
 		if (err) return res.send(err);
 
-		return res.redirect("/items");
+		return res.redirect("/users");
 	});
 };
 
@@ -58,7 +60,7 @@ const update = (req, res) => {
 		{ new: true },
 		(err, updatedItem) => {
 			if (err) return res.send(err);
-			res.redirect(`/items/${updatedItem._id}`);
+			res.redirect(`/users`);
 		}
 	);
 };
@@ -66,13 +68,10 @@ const update = (req, res) => {
 // delete
 
 const destroy = (req, res) => {
+	console.log("ItemsController>destroy>" + req.params.id)
 	db.Item.findByIdAndDelete(req.params.id, (err, deletedItem) => {
 		if (err) return res.send(err);
-		db.Item.findById(deletedItem, (err, foundItem) => {
-            foundItem.remove(deletedItem);
-            foundItem.save();
-            res.redirect("/items")
-        })
+		res.redirect("/users")
 	});
 };
 

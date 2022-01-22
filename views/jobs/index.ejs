@@ -10,8 +10,14 @@
 	</head>
 	<body>
 		<nav>
-			<h1 class="Job-header">Job Listings!</h1>
-				<h1>List of Jobs</h1>
+			<nav>
+				<% if (user) { %>
+					<a href="/logout"><i class="material-icons left">trending_flat</i>Log Out</a>
+				<% } else { %>
+					<a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a>
+				<% } %>
+			</nav>
+			<h4 class="Job-header">Job Listings</h4>
 				<ul>
 					<li>
 						<a href="/jobs">List of Jobs</a>
@@ -21,16 +27,17 @@
 					</li>
 				</ul>
 					<a href ="/"> Back to Home</a>
+
 					<div class="job-div">
 						<% jobs.forEach((job, i) => { %>
 					<div class="jobList">
-						<tr>
-							<td><%= job.title %></td>
-							<td><%= job.company %></td>
-							<td><%= job.description %></td>
-							<td><%= job.date %></td>
-							<td><a href="/jobs/<%= job._id %>">DETAILS</a></td>
-						  </tr>
+						<ul>
+							<li><%= job.title %></li>
+							<li><%= job.company %></li>
+							<li><%= job.description %></li>
+							<li><%= job.date %></li>
+							<li><a href="/jobs/<%= job._id %>">DETAILS</a></li>
+						</ul>
 					</div>
 				<% }) %>
 			</div> 
