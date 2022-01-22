@@ -1,28 +1,29 @@
-<nav>
-    <div>
-        <ul>
-            <li>
-                <a href="/" class="site-name">Craig'slist</a>
-            </li>
-            <li>
-            <a href="/search">Search</a>
-            </li>
-            <li>
-                <a href="/items">For Sale</a>
-            </li>
-            <li>
-                <a href="/jobs">Job Listing</a>
-            </li>
-            <% if (user) { %>
+    <nav class="row">
+        <div class="nav-wrapper">
+            <a href="/" class="site-name left col s1">Craig'slist</a>
+            <form class="col s4 m7 l7">
+                <div class="input-field">
+                    <input id="search" type="search" name="search" required>
+                    <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                    <i class="material-icons">close</i>
+                </div>
+            </form>
+            <ul class="right">
                 <li>
-                    <a href="/logout"><i class="material-icons left">trending_flat</i>Log Out</a>
+                    <a href="/items">For Sale</a>
                 </li>
-            <% } else { %>
                 <li>
-                    <a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a>
+                    <a href="/jobs">Job Listing</a>
                 </li>
-            <% } %>
-        
-        </ul>
-    </div>
-</nav>
+                <% if (user) { %>
+                    <li>
+                        <a href="/logout"><i class="material-icons left">trending_flat</i>Log Out</a>
+                    </li>
+                <% } else { %>
+                    <li>
+                        <a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a>
+                    </li>
+                <% } %>
+            </ul>
+        </div>
+    </nav>
