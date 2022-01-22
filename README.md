@@ -19,11 +19,10 @@ Collaboration Project to reverse engineer and redesign a website
 * Matt started work on OAuth
 * Nesh started work on setting up the models and controllers
 
-## Day 5
+### Day 5
 * Matt finished OAuth and started working on the Nav Bar, Partials, and Home screen
 * Nesh set up the routes and views
 
-## Day 6 & 7
+### Day 6 & 7
 * Debugging and setting up the css
 * Deploying to Heroku
-

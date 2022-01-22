@@ -4,7 +4,6 @@ const express = require("express");
 const methodOverride = require("method-override");
 const mongoose = require("mongoose");
 const morgan = require("morgan");
-// const expressLayouts = require ("express-ejs-layouts");
 const session = require("express-session");
 const passport = require("passport");
 
@@ -16,8 +15,7 @@ const bodyParser = require("body-parser");
 const app = express();
 
 /* ==== Configuration ==== */
-const PORT = 4000;
-// app.use(expressLayouts);
+const PORT = process.env.PORT || 5000;
 app.set("view engine", "ejs");
 
 /* ==== Middleware ==== */
@@ -30,7 +28,6 @@ app.use(express.urlencoded({ extended: true}));
 app.use(methodOverride("_method"));
 // serve public files
 app.use(express.static("public"));
-// app.use("/css", express.static(_dirname + "public/css"));
 app.use(express.json());
 // logger
 app.use((req, res, next) => {
