@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <%- include('../partials/head.ejs') %>
-    <title>New Job posting</title>
+    <title>Teri's List | New Job Listing</title>
 </head>
 <body>
     <%- include('../partials/nav.ejs') %>
@@ -10,19 +10,19 @@
         <div class="container">
             <div class="row">
                 <form action="/jobs" method="POST" class="col s12">
-                <div class="row">
-                    <h5>Provide the following information to create a job listing. </h5>
-                    <div class="input-field col s12">
-                        <input name="title" id="title" type="text" class="validate">
-                        <label for="title">Job Title</label>
+                    <div class="row">
+                        <h4>Provide the following information to create a job listing. </h4>
+                        <div class="input-field col s12">
+                            <input name="title" id="title" type="text" class="validate">
+                            <label for="title">Job Title</label>
+                        </div>
+                    </div> 
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input name="company" id="company" type="text" class="validate">
+                            <label for="company">Company</label>
+                        </div>
                     </div>
-                </div> 
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input name="company" id="company" type="text" class="validate">
-                        <label for="company">Company</label>
-                    </div>
-                </div>
                     <div class="row">
                         <div class="input-field col s12">
                             <input name="description" id="escription" type="text" class="validate">
@@ -36,11 +36,17 @@
                         </div>
                     </div>
                     <div class="row">
+                        <% if(!user) { %>
+                            <p>Please Log In</p>
+                        <% } %>
                         <div class="input-field col s12">
-                            <input name="user_id" id="user_id" type="hidden" value="<%= user._id %>" class="validate">
+                            <input name="user" id="user" type="hidden" value="<%= user._id %>">
                         </div>
                     </div>
-                    <input type="submit" value="Create" />
+                    <button type="submit" value="Create Job Listing" class="right btn waves-effect waves-light" >
+                        Create Job Listing
+                        <i class="material-icons right">send</i>
+                    </button>
                 </form>
             </div>
         </div>

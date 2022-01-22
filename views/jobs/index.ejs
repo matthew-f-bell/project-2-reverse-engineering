@@ -2,25 +2,34 @@
 <html lang="en">
 	<head>
 		<%- include('../partials/head.ejs') %>
-		<title>List of Jobs</title>
+		<title>Teri's List | List of Jobs</title>
 	</head>
 	<body>
 		<%- include('../partials/nav.ejs') %>
-
-		<h4 class="Job-header">Job Listings</h4>
-		<a href="/jobs/new">Create New Job Listing</a>
-		<div class="job-div">
-			<% jobs.forEach((job, i) => { %>
-		<div class="jobList">
-			<tr>
-				<td><%= job.title %></td>
-				<td><%= job.company %></td>
-				<td><%= job.description %></td>
-				<td><%= job.date %></td>
-				<td><a href="/jobs/<%= job._id %>">DETAILS</a></td>
-			  </tr>
+		<div class="container">
+			<h3 class="Job-header center">Job Listings</h3>
+			<div class="section">
+				<% if(!user) { %>
+					<p class="center">Please <a href="/auth/google">Log In</a> to Create a Job Listing</p>
+				<% } else { %>
+					<div class="section">
+						<a class="waves-effect waves-light btn right" href="/jobs/new">Create New Job Listing</a>
+					</div>
+					<% } %>
+				<% if(!jobs.length) { %>
+					<p>There are no jobs available yet.</p>
+				<% } %>
+			</div>
+			<ol>
+				<% jobs.forEach(job => { %>
+					<div class="divider"></div>
+					<div class="section">
+						<li>
+							Job Title:<a href="/jobs/<%= job._id %>"> <%= job.title %></br>  </a>Company: <%= job.company %>
+						</li>
+					</div>
+				<% })%>
+			</ol>
 		</div>
-	<% }) %>
-</div> 
 	</body>
 </html>

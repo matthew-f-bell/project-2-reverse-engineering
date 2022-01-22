@@ -2,45 +2,48 @@
 <html lang="en">
 	<head>
 		<%- include('../partials/head.ejs') %>
-		<title>Job Listing</title>
+		<title>Teri's List | Job Listing</title>
 	</head>
 	<body>
 		<%- include('../partials/nav.ejs') %>
 		<main>
 			<div class="container">
-		<div class="row">
-			<div class="row">
-                <form action="/jobs/" method="POST" class="col s12">
                 <div class="row">
                     <h5>Please update any chnages to this post. </h5>
-                    <div class="input-field col s12">
-                        <input name="name" id="name" type="text" class="validate">
-                        <label for="name">Job Title</label>
-                    </div>
-                </div> 
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input name="company" id="company" type="text" class="validate">
-                        <label for="company">Company</label>
-                    </div>
+                    <form action="/jobs/<%= jobs._id %>?_method=PUT" method="POST" class="col s12">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input name="title" id="title" type="text" value="<%= jobs.title %>" class="validate">
+                                <label for="name">Job Title</label>
+                            </div>
+                        </div> 
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input name="company" id="company" type="text" value="<%= jobs.company %>" class="validate">
+                                <label for="company">Company</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input name="description" id="description" type="text" value="<%= jobs.description %>" class="validate">
+                                <label for="description">Job description</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input name="date" id="date" type="hidden" value="<%= jobs.date %>" class="validate">
+                            </div>
+                        </div>
+                        <div class="input-field col s12">
+                            <input name="user" id="user" type="hidden" value="<%= user._id %>">
+                        </div>
+                        <button type="submit" value="Update Job Listing" class="right btn waves-effect waves-light" >
+                            Update Job Listing
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </form>
                 </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input name="job_description" id="job_description" type="text" class="validate">
-                            <label for="job_description">Job description</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input name="date" id="date" type="text" class="validate">
-                            <label for="date">Date</label>
-                        </div>
-                    </div>
-					<input type="submit" value="Update" />
-					</form>
-				</div>
-				</div>
-			</form> 
+            </div>
 		</main>
 	</body>
 </html>

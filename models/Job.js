@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
 const jobSchema = new mongoose.Schema(
 	{
@@ -14,8 +15,7 @@ const jobSchema = new mongoose.Schema(
         date: {
             type: Date,
         },
-        user_id: {type: mongoose.Schema.Types.ObjectId, 
-            ref: 'User'},
+        user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
 	},
 	{
 		timestamps: true,

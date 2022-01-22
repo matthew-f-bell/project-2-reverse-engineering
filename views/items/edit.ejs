@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<%- include('../partials/head.ejs') %>
-		<title>Items for sale</title>
+		<title>Teri's List | Items for sale</title>
 	</head>
 	<body>
 		<%- include('../partials/nav.ejs') %>
@@ -12,23 +12,43 @@
 			<div class="row">
 				<h1>Edit <%= item.name %></h1>
 			<form action="/items/<%= item._id %>?_method=PUT" method="POST">
-					<div class="row">
-						<div class="input-field col s12">
-							<input type="text" name="name" value="<%= item.name %>" />
-							<label for="name">Item Name</label>
-						</div>
-					</div>
-					
 				<div class="row">
 					<div class="input-field col s12">
-						<input name="items_type" id="items_type" type="text" value="<%= item.items_type %>">
-						<label for="items_type">Item type</label>
+						<input name="name" id="name" type="text" value="<%= item.name %>" class="validate">
+						<label for="name">Item name</label>
 					</div>
-					<div>
-						<label>Description</label><br/>
-						<textarea type="text" name="description" rows="7" cols="30"></textarea><br>
-							<input type="submit" value="Update" />
+				</div> 
+				<div class="row">
+					<div class="input-field col s12">
+						<input name="items_type" id="items_type" type="text" value="<%= item.items_type %>" class="validate">
+						<label for="items_type">Type of Item</label>
 					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s12">
+						<input name="items_description" id="items_description" type="text" value="<%= item.items_description %>" class="validate">
+						<label for="items_description">Item Description</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s12">
+						<input name="location" id="location" type="text" value="<%= item.location %>" class="validate">
+						<label for="location">Item Location</label>
+					</div>
+				</div> 
+				<div class="row">
+					<div class="input-field col s12">
+						<input name="price" id="price" type="text" value="<%= item.price %>" class="validate">
+						<label for="price">Item Price</label>
+					</div>
+				</div> 
+				<div class="input-field col s12">
+					<input name="user" id="user" type="hidden" value="<%= user._id %>">
+				</div>
+				<button type="submit" value="Update Item Listing" class="right btn waves-effect waves-light" >
+					Update Job Listing
+					<i class="material-icons right">send</i>
+				</button>
 				</form>
 			</div>
 		</div>  

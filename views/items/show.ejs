@@ -2,96 +2,36 @@
 <html lang="en">
 	<head>
 		<%- include('../partials/head.ejs') %>
-		<title>Items for Sale<%= item.name %></title>
+		<title>Teri's List | Item for Sale</title>
 	</head>
-	<!-- <body>
-		<%- include('../partials/nav.ejs') %>
-		<main>
-			<section>
-				<h2>Item Info</h2>
-				<a href="/items/<%=item._id %>/edit">Edit</a>
-				<ul>
-					<li>Name: <%= item.name %></li>
-					<li>Items:</li>
-					<% items.forEach(item => { %>
-						<li><%=item.name %></li>
-					<% }) %>
-				</ul>
-			</section>
-			<form action="/items/<%= item._id %>?_method=DELETE" method="POST">
-				<input type="submit" value="Delete" />
-			</form>
-		</main>
-	</body>
-</html> -->
-<!-- <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Item</title>
-    <link rel="stylesheet" href="../public/css/styles.css">
-    <!-- Compiled and minified CSS -
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-    <!-- Compiled and minified JavaScript 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-            
-</head>
-<body>
-        <nav>
-            <div class="nav-wrapper">
-                <a href="/" class="brand-logo">Craigs List</a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><%= user.name %></li>
-                    <li><a href="/search">Search</a></li>
-                    <li><a href="/logout">Log Out</a></li>
-                </ul>
-              </div>
-        </nav> -->
 <body>
     <main>
-            <div class="container">
-                <div class="row">
-                    <form action="/items/<%= item._id%>?_method=PUT" method="POST" class="col s12">
-                        <div class="row">
-                            <h5>Update the Item Information </h5>
-                            <div class="input-field col s12">
-                                <input name="user_id" type="hidden" value="<%= user.id %>">
-                                <input name="name" id="name" type="text" class="validate" value="<%= item.name %>">
-                                <label for="name">Item Name</label>
-                            </div>
-                        </div>
-                        
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input name="items_type" id="items_type" type="text" class="validate" value="<%= item.items_type %>">
-                                <label for="items_type">Item type</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input name="location" id="location" type="text" class="validate" value="<%= item.location %>">
-                                <label for="location">Location</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input name="price" id="price" type="text" class="validate" value="<%= item.price %>">
-                                <label for="price">Item price</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <textarea name="items_description" id="items_description" class="materialize-textarea"><%= item.items_description %></textarea>
-                                <label for="items_description">Item description</label>
-                            </div>
-                        </div>
-                        <input type="submit" value="Update" />
-                    </form>
-                </div>
-            </div>
+		<%- include('../partials/nav.ejs') %>
+        <div class="container">
+            <h2 class="center">List of item</h2>
+            <section>
+                <h3 class="center">Item Info</h3>
+                <% if(!user) { %>
+                    <p class="center">Please <a href="/auth/google">Log In</a> to Create a Sale Listing</p>
+                <% } else { %>
+                    <a class="waves-effect waves-light btn" href="/items/<%= item._id %>/edit">Edit</a>
+                <% } %>
+                <ul class="center">
+                    <li>Item: <%= item.name %></li>
+                    <li>Company: <%= item.items_type %></li>
+                    <li>Description: <%= item.items_description %></li>
+                    <li>Location: <%= item.location %></li>
+                    <li>Price: $<%= item.price %></li>
+                    <li>Seller: <%= item.user.name %></li>
+                </ul>
+            </section>
+            <form action="/items/<%= item.id %>?_method=DELETE" method="POST">
+                <button type="submit" value="Delete Item Sale Listing" class="right btn waves-effect waves-light" >
+                    Delete Item Sale Listing
+                <i class="material-icons right">send</i>
+                </button>
+            </form>
         </div>
-            
         </main>
     </body>
     </html>

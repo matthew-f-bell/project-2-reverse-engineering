@@ -13,3 +13,15 @@ Collaboration Project to reverse engineer and redesign a website
 * Set up basic server framework
 * Created and connected to MongoDB Atlas
 
+## Day 4 
+* Matt started work on OAuth
+* Nesh started work on setting up the models and controllers
+
+## Day 5
+* Matt finished OAuth and started working on the Nav Bar, Partials, and Home screen
+* Nesh set up the routes and views
+
+## Day 6 & 7
+* Debugging and setting up the css
+* Deploying to Heroku
+
