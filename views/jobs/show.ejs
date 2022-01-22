@@ -23,12 +23,16 @@
 						<li>Poster: <%= jobs.user.name %></li>
 					</ul>
 				</section>
-				<form action="/jobs/<%= jobs.id %>?_method=DELETE" method="POST">
-					<button type="submit" value="Delete Job Listing" class="right btn waves-effect waves-light" >
-						Delete Job Listing
-					<i class="material-icons right">send</i>
-					</button>
-				</form>
+				<% if(!user) { %>
+					<p class="center">Please <a href="/auth/google">Log In</a> to Delete this Listing</p>
+				<% } else { %>
+					<form action="/jobs/<%= jobs.id %>?_method=DELETE" method="POST">
+						<button type="submit" value="Delete Job Listing" class="right btn waves-effect waves-light" >
+							Delete Job Listing
+						<i class="material-icons right">send</i>
+						</button>
+					</form>
+				<% } %>
 			</div>
 		</main>
 	</body>

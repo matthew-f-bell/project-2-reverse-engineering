@@ -25,12 +25,16 @@
                     <li>Seller: <%= item.user.name %></li>
                 </ul>
             </section>
+            <% if(!user) { %>
+                <p class="center">Please <a href="/auth/google">Log In</a> to Delete this Listing</p>
+            <% } else { %>
             <form action="/items/<%= item.id %>?_method=DELETE" method="POST">
                 <button type="submit" value="Delete Item Sale Listing" class="right btn waves-effect waves-light" >
                     Delete Item Sale Listing
                 <i class="material-icons right">send</i>
                 </button>
             </form>
+            <% } %>
         </div>
         </main>
     </body>
