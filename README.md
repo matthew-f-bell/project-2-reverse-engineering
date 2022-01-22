@@ -12,7 +12,7 @@ As a user, I want to log in to my account using Gmail account to create, post, a
 
 Main page:
 
-Aa a User I want to click on a Job listing/items for sale, which will then direct me to a page where I am able to see all my posts. 
+Aa a User I want to click on a Job listing/items, which will then direct me to a page where I am able to see all my posts. 
 As a User I want to have the option to leave a page. I am able to do so by clicking to the site logo on the navbar. This will direct me back to landing page. 
 
 
