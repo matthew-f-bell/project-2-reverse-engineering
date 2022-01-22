@@ -13,20 +13,22 @@ const index = (req, res) => {
 // newJob
 
 const newJob = (req, res) => {
-	const context = { user: req.user };
-	return res.render("jobs/new", context);
+	db.User.find({}, (err, foundJobs) => {
+		if (err) return res.send(err);
+		const context = { jobs: foundJobs, user: req.user };
+		return res.render("jobs/new", context);
+	})
 };
 
 
 // show
 
 const show = (req, res) => {
-	console.log(req.params.id);
 	db.Job.findById(req.params.id)
-		// .populate("jobs")
+		.populate("user")
 		.exec((err, foundJob)=> {
 			if(err) return res.send(err);
-			const context = {job: foundJob};
+			const context = {jobs: foundJob, user: req.user};
 		    return res.render("jobs/show", context)
 	});
 };
@@ -36,9 +38,14 @@ const show = (req, res) => {
 const create = (req, res) => {
 	db.Job.create(req.body, (err, createdJob) => {
 		if (err) return res.send(err);
-
-		return res.redirect("/users");
-	});
+		db.User.findById(createdJob.user_id)
+			.exec(function(err, foundUser) {
+				if(err) return res.send(err);
+				foundUser.jobs.push(createdJob)
+				foundUser.save();
+				res.redirect("/jobs");
+			})
+		})
 };
 
 
@@ -63,7 +70,7 @@ const update = (req, res) => {
 		{ new: true },
 		(err, updatedJob) => {
 			if (err) return res.send(err);
-			res.redirect(`/users`);
+			res.redirect(`/jobs`);
 
 			// res.redirect(`/jobs/${updatedJob._id}`);
 		}
@@ -75,11 +82,11 @@ const update = (req, res) => {
 const destroy = (req, res) => {
 	db.Job.findByIdAndDelete(req.params.id, (err, deletedJob) => {
 		if (err) return res.send(err);
-		// db.Job.findById(deletedJob, (err, foundJob) => {
-            // foundJob.remove(deletedJob);
-            // foundJob.save();
-            res.redirect("/users")
-        // })
+		db.User.findById(deletedJob.user, (err, foundUser) => {
+            foundUser.jobs.remove(deletedJob);
+            foundUser.save();
+            res.redirect("/jobs")
+        })
 	});
 };
 

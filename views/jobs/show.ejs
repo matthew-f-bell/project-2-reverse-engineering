@@ -12,7 +12,10 @@
 				<h2>Job Info</h2>
 				<a href="/jobs/">Edit</a>
 				<ul>
-					<li>Title: </li>
+					<li>Title: <%= jobs.title %></li>
+					<li>Company: <%= jobs.company %></li>
+					<li>Description: <%= jobs.description %></li>
+					<li>Poster: <%= jobs.user.name %></li>
 					<li>Job Listings:</li>
 					
 				</ul>
