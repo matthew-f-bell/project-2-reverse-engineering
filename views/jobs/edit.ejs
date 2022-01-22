@@ -13,7 +13,7 @@
                     <form action="/jobs/" method="POST" class="col s12">
                         <div class="row">
                             <div class="input-field col s12">
-                                <input name="name" id="name" type="text" value="<%= jobs.title %>" class="validate">
+                                <input name="title" id="title" type="text" value="<%= jobs.title %>" class="validate">
                                 <label for="name">Job Title</label>
                             </div>
                         </div> 
@@ -28,6 +28,14 @@
                                 <input name="description" id="description" type="text" value="<%= jobs.description %>" class="validate">
                                 <label for="description">Job description</label>
                             </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input name="date" id="date" type="hidden" value="<%= jobs.date %>" class="validate">
+                            </div>
+                        </div>
+                        <div class="input-field col s12">
+                            <input name="user" id="user" type="hidden" value="<%= user._id %>">
                         </div>
                         <input type="submit" value="Update Job Listing" />
                     </form>

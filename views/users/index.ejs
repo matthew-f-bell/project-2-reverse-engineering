@@ -1,41 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script defer src="script.js"></script>
-    <link rel="stylesheet" href="../public/css/style.css"/>
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-            
-    <title>Craigs List</title>
+    <%- include('../partials/head.ejs') %>
+    <title>Teri's List</title>
 </head>
 <body>
 
-    <nav>
-        <div class="nav-wrapper">
-          <a href="/" class="brand-logo">Craigs List</a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href ="/"> Back to Home</a></li>
-            <li><a href="/search">Search</a></li>
-            <% if (user) { %>
-                <li><a href="/logout">Log Out</a></li>
-            <% } else { %>
-                <li><a href="/auth/google">Login with Google</a></li>
-            <% } %>
-          </ul>
-        </div>
-      </nav>
-        <form>
+    <%- include('./partials/nav.ejs') %>
             <div>
                 <h5 id="header">Welcome back <%= user.name %>!</h5>
                 <p>The following are your current posts:</p>
             </div>
-        </form>   
             <div class="container">
                 <div class="row">
                     <div class="col s6">

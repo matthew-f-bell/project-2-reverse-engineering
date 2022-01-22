@@ -6,22 +6,30 @@
 	</head>
 	<body>
 		<%- include('../partials/nav.ejs') %>
-
-		<h4 class="Job-header">Job Listings</h4>
-		<% if(!user) { %>
-			<p>Please Log In to Create a Job Listing</p>
-		<% } else { %>
-			<a href="/jobs/new">Create New Job Listing</a>
-		<% } %>
-		<% if(!jobs.length) { %>
-			<p>There are no jobs available yet.</p>
-		<% } %>
+		<div class="container">
+			<h3 class="Job-header center">Job Listings</h3>
+			<div class="section">
+				<% if(!user) { %>
+					<p class="center">Please <a href="/auth/google">Log In</a> to Create a Job Listing</p>
+				<% } else { %>
+					<div class="section">
+						<a class="waves-effect waves-light btn right" href="/jobs/new">Create New Job Listing</a>
+					</div>
+					<% } %>
+				<% if(!jobs.length) { %>
+					<p>There are no jobs available yet.</p>
+				<% } %>
+			</div>
 			<ol>
 				<% jobs.forEach(job => { %>
-				<li>
-					Job Title:<a href="/jobs/<%= job._id %>"> <%= job.title %></br>  </a>Company: <%= job.company %>
-				</li>
+					<div class="divider"></div>
+					<div class="section">
+						<li>
+							Job Title:<a href="/jobs/<%= job._id %>"> <%= job.title %></br>  </a>Company: <%= job.company %>
+						</li>
+					</div>
 				<% })%>
 			</ol>
+		</div>
 	</body>
 </html>
