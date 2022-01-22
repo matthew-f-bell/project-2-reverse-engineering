@@ -23,7 +23,6 @@
     "express": "^4.17.2",
     "express-ejs-layouts": "^2.5.1",
     "express-session": "^1.17.2",
-    "heroku": "^7.59.2",
     "method-override": "^3.0.0",
     "mongoose": "^6.1.7",
     "morgan": "^1.10.0",
