@@ -1,30 +1,31 @@
 const db = require("../models");
 
-
-const index = (req, res, next) => {
+// index
+const index = (req, res) => {
     db.Item.find({}, (err, allItems) => {
         if (err) return res.send(err);
         const context = { items: allItems, user: req.user };
-        return res.render("items/index", context);
+        res.render("items/index", context);
     });
 };
 
 // newItem
 
 const newItem = (req, res,) => {
-	const context = { user: req.user };
-	return res.render("items/new", context);
+	db.User.find({}, (err, foundItems) => {
+		if (err) return res.send(err);
+		const context = { items: foundItems, user: req.user };
+		return res.render("items/new", context);
+	})
 };
 
 // show
 
 const show = (req, res) => {
-	console.log("ItemsController>Show>Param:" + req.params.id);
 	db.Item.findById(req.params.id)
-		// .populate("user")
+		.populate("user")
 		.exec((err, foundItem)=> {
 			if(err) return res.send(err);
-			console.log(foundItem);
 			const context = {item: foundItem, user: req.user};
 		    return res.render("items/show", context)
 	});
@@ -35,8 +36,14 @@ const show = (req, res) => {
 const create = (req, res) => {
 	db.Item.create(req.body, (err, createdItem) => {
 		if (err) return res.send(err);
+		db.User.findById(createdItem.user)
+			.exec(function(err, foundUser) {
+				if(err) return res.send(err);
+				foundUser.items.push(createdItem)
+				foundUser.save();
+				res.redirect("/users");
+			})
 
-		return res.redirect("/users");
 	});
 };
 
@@ -45,7 +52,7 @@ const create = (req, res) => {
 const edit = (req, res) => {
 	db.Item.findById(req.params.id, (err, foundItem) => {
 		if (err) return res.send(err);
-		const context = { item: foundItem };
+		const context = { item: foundItem, user: req.user };
 	    res.render("items/edit", context);
 	});
 };
@@ -71,7 +78,11 @@ const destroy = (req, res) => {
 	console.log("ItemsController>destroy>" + req.params.id)
 	db.Item.findByIdAndDelete(req.params.id, (err, deletedItem) => {
 		if (err) return res.send(err);
-		res.redirect("/users")
+		db.User.findById(deletedItem.user, (err, foundUser) => {
+			foundUser.items.remove(deletedItem);
+			foundUser.save();
+			res.redirect("/users")
+		})
 	});
 };
 

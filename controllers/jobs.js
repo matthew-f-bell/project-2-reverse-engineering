@@ -10,7 +10,7 @@ const index = (req, res) => {
 };
 
 
-// new Job
+// new Job 
 
 const newJob = (req, res) => {
 	db.User.find({}, (err, foundJobs) => {
@@ -24,7 +24,6 @@ const newJob = (req, res) => {
 // show
 
 const show = (req, res) => {
-	console.log(req.params.id);
 	db.Job.findById(req.params.id)
 		.populate("user")
 		.exec((err, foundJob) => {

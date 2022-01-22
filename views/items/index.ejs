@@ -6,25 +6,36 @@
 	</head>
 	<body>
 		<%- include('../partials/nav.ejs') %>
-		<h1 class="Item-header">List of Items</h1>
-			<ul>
-				<li>
-					<a href="/items/new">Post an Item to Sell</a>
-				</li>
-			</ul>
-			<div class="item-div">
+		<h1 class="Item-header center">List of Items</h1>
+
+		<div class="section">
+			<% if(!user) { %>
+				<p class="center">Please <a href="/auth/google">Log In</a> to Create a Sale Listing</p>
+			<% } else { %>
+				<div class="section">
+					<a class="waves-effect waves-light btn right" href="/items/new">Create New Sale Listing</a>
+				</div>
+				<% } %>
+			<% if(!items.length) { %>
+				<p>There are no items being sold yet.</p>
+			<% } %>
+		</div>
+		<div class="item-div container">
+			<ol>
 				<% items.forEach((item, i) => { %>
-					<div class="itemList">
-						<ul>
-							<li><%= item.name %></li>
-							<li><%= item.items_type %></li>
-							<li><%= item.items_description %></li>
-							<li><%= item.location %></li>
-							<li><%= item.price %></li>
-							<li><a href="/items/<%= item._id %>">DETAILS</a></li>
-						</ul>
+					<div class="divider"></div>
+					<div class="section">
+						<li>
+							<ul>
+								<li><a class="waves-effect waves-light btn right center-align" href="/items/<%= item._id %>">More Details</a></li>
+								<li>Item: <%= item.name %></a></li>
+								<li>Type of item: <%= item.items_type %></li>
+								<li>Price: <%= item.price %></li>
+							</ul>
+						</li>
 					</div>
 				<% }) %>
-			</div> 
+			</ol>
+		</div> 
 	</body>
 </html>

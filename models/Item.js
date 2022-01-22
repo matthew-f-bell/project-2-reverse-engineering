@@ -22,7 +22,7 @@ const itemSchema = new mongoose.Schema(
             type: Number,
             required: [true, "You must enter price for the item"],
         },
-        user_id: {
+        user: {
             items: [{type: mongoose.Schema.Types.ObjectId, 
                 ref: "User"}],
 
