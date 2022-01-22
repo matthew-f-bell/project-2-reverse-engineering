@@ -5,10 +5,10 @@ const ctrl = require("../controllers");
 
 router.get("/", ctrl.items.index);
 router.get("/new", ctrl.items.newItem);
-router.delete("/:id", ctrl.items.destroy);
-router.put("/:id", ctrl.items.update);
+router.get("/:id", ctrl.items.show);
 router.post("/", ctrl.items.create);
 router.get("/:id/edit", ctrl.items.edit);
-router.get("/:id", ctrl.items.show);
+router.put("/:id", ctrl.items.update);
+router.delete("/:id", ctrl.items.destroy);
 
 module.exports = router;

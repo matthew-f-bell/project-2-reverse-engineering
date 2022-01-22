@@ -5,35 +5,26 @@
 		<title>Items for sale</title>
 	</head>
 	<body>
-
 		<%- include('../partials/nav.ejs') %>
-
-		</nav>
 		<h1 class="Item-header">List of Items</h1>
 			<ul>
-				<li>
-					<a href="/items">List of Items for Sale</a>
-				</li>
 				<li>
 					<a href="/items/new">Post an Item to Sell</a>
 				</li>
 			</ul>
-			<a href ="/"> Back to Home</a>
-			
 			<div class="item-div">
 				<% items.forEach((item, i) => { %>
 					<div class="itemList">
-						<tr>
-							<td><%= item.name %></td>
-							<td><%= item.items_type %></td>
-							<td><%= item.items_description %></td>
-							<td><%= item.location %></td>
-							<td><%= item.price %></td>
-							<td><a href="/items/<%= item._id %>">DETAILS</a></td>
-						  </tr>
+						<ul>
+							<li><%= item.name %></li>
+							<li><%= item.items_type %></li>
+							<li><%= item.items_description %></li>
+							<li><%= item.location %></li>
+							<li><%= item.price %></li>
+							<li><a href="/items/<%= item._id %>">DETAILS</a></li>
+						</ul>
 					</div>
 				<% }) %>
 			</div> 
-		</nav>
 	</body>
 </html>

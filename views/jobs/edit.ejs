@@ -7,23 +7,40 @@
 	<body>
 		<%- include('../partials/nav.ejs') %>
 		<main>
-			<h1>Edit <%= job.title %></h1>
-			<form action="/jobs/<%= job._id %>?_method=PUT" method="POST">
-				<input type="text" title="title" value="<%= job.title %>" />
-                <div>
-                    <label>Company<span class="required">*</span></label><br>
-                    <input type="text" name="companyName"><br> 
+			<div class="container">
+		<div class="row">
+			<div class="row">
+                <form action="/jobs/" method="POST" class="col s12">
+                <div class="row">
+                    <h5>Please update any chnages to this post. </h5>
+                    <div class="input-field col s12">
+                        <input name="name" id="name" type="text" class="validate">
+                        <label for="name">Job Title</label>
+                    </div>
+                </div> 
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input name="company" id="company" type="text" class="validate">
+                        <label for="company">Company</label>
+                    </div>
                 </div>
-                <div>
-                    <label>Description</label><br>
-                    <input type="text" name="description"><br>
-                </div>
-                <div>
-                    <label>Date</label><br/>
-                    <textarea type="text" name="date" rows="7" cols="30"></textarea><br>
-						<input type="submit" value="Update" />
-                </div>
-			</form>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input name="job_description" id="job_description" type="text" class="validate">
+                            <label for="job_description">Job description</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input name="date" id="date" type="text" class="validate">
+                            <label for="date">Date</label>
+                        </div>
+                    </div>
+					<input type="submit" value="Update" />
+					</form>
+				</div>
+				</div>
+			</form> 
 		</main>
 	</body>
 </html>

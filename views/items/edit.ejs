@@ -7,23 +7,51 @@
 	<body>
 		<%- include('../partials/nav.ejs') %>
 		<main>
-			<h1>Edit <%= item.name %></h1>
+		<div class="container">
+                
+			<a href="/items/edit">Post an Item </a>
+			<div class="row">
+				<h1>Edit <%= item.name %></h1>
 			<form action="/items/<%= item._id %>?_method=PUT" method="POST">
-				<input type="text" name="name" value="<%= item.name %>" />
-                <div>
-                    <label>Price<span class="required">*</span></label><br>
-                    <input type="text" name="price"><br> 
-                </div>
-                <div>
-                    <label>Type of Item</label><br>
-                    <input type="text" name="itemType"><br>
-                </div>
-                <div>
-                    <label>Description</label><br/>
-                    <textarea type="text" name="description" rows="7" cols="30"></textarea><br>
-						<input type="submit" value="Update" />
-                </div>
-			</form>
+					<div class="row">
+						<div class="input-field col s12">
+							<input type="text" name="name" value="<%= item.name %>" />
+							<label for="name">Item Name</label>
+						</div>
+					</div>
+					
+				<div class="row">
+					<div class="input-field col s12">
+						<input name="items_type" id="items_type" type="text" value="<%= item.items_type %>">
+						<label for="items_type">Item type</label>
+					</div>
+				<!-- </div>
+					<div class="row">
+						<div class="input-field col s12">
+							<input name="location" id="location" type="text" class="validate">
+							<label for="location">Location</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12">
+							<input name="price" id="price" type="text" class="validate">
+							<label for="price">Item price</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12">
+							<textarea name="items_description" id="items_description" class="materialize-textarea"></textarea>
+							<label for="items_description">items_description</label>
+						</div>
+					</div> -->
+					<div>
+						<label>Description</label><br/>
+						<textarea type="text" name="description" rows="7" cols="30"></textarea><br>
+							<input type="submit" value="Update" />
+					</div>
+				</form>
+			</div>
+		</div>  
 		</main>
 	</body>
 </html>

@@ -42,7 +42,7 @@ const create = (req, res) => {
 // Edit
 
 const edit = (req, res) => {
-	db.Job.findById(req.params.id, (err, foundJob) => {
+	db.Job.findById(req.body._id, (err, foundJob) => {
 		if (err) return res.send(err);
 		const context = { job: foundJob };
 	    res.render("jobs/edit", context);

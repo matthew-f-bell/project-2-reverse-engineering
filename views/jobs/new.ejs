@@ -7,13 +7,38 @@
 <body>
     <%- include('../partials/nav.ejs') %>
     <main>
-		<form action="/jobs" method="POST">
-			<input type="text" title="title" placeholder="Job title" />
-            <input type="text" company="company" placeholder="Job company" />
-            <input type="text" description="description" placeholder="Job description" />
-            <input type="text" date="date" placeholder="Date" />
-			<input type="submit" value="Create" />
-		</form>
+        <div class="container">
+            <div class="row">
+                <form action="/jobs" method="POST" class="col s12">
+                <div class="row">
+                    <h5>Provide the following information to create a job listing. </h5>
+                    <div class="input-field col s12">
+                        <input name="name" id="name" type="text" class="validate">
+                        <label for="name">Job Title</label>
+                    </div>
+                </div> 
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input name="company" id="company" type="text" class="validate">
+                        <label for="company">Company</label>
+                    </div>
+                </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input name="job_description" id="job_description" type="text" class="validate">
+                            <label for="job_description">Job description</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input name="date" id="date" type="text" class="validate">
+                            <label for="date">Date</label>
+                        </div>
+                    </div>
+                    <input type="submit" value="Create" />
+                </form>
+            </div>
+        </div>
 	</main>
 </body>
 </html>
