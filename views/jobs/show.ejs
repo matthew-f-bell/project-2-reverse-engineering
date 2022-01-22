@@ -7,7 +7,29 @@
 	<body>
 		<%- include('../partials/nav.ejs') %>
 		<main>
-
+			<div class="container">
+				<h2 class="center">List of Jobs</h2>
+				<section>
+					<h3 class="center">Job Info</h3>
+					<% if(!user) { %>
+						<p class="center">Please <a href="/auth/google">Log In</a> to Create a Sale Listing</p>
+					<% } else { %>
+						<a class="waves-effect waves-light btn" href="/jobs/<%= jobs._id %>/edit">Edit</a>
+					<% } %>
+					<ul class="center">
+						<li>Title: <%= jobs.title %></li>
+						<li>Company: <%= jobs.company %></li>
+						<li>Description: <%= jobs.description %></li>
+						<li>Poster: <%= jobs.user.name %></li>
+					</ul>
+				</section>
+				<form action="/jobs/<%= jobs.id %>?_method=DELETE" method="POST">
+					<button type="submit" value="Delete Job Listing" class="right btn waves-effect waves-light" >
+						Delete Job Listing
+					<i class="material-icons right">send</i>
+					</button>
+				</form>
+			</div>
 		</main>
 	</body>
 </html>

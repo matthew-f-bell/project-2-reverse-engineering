@@ -41,7 +41,7 @@ const create = (req, res) => {
 				if(err) return res.send(err);
 				foundUser.items.push(createdItem)
 				foundUser.save();
-				res.redirect("/users");
+				res.redirect("/items");
 			})
 
 	});
@@ -67,7 +67,7 @@ const update = (req, res) => {
 		{ new: true },
 		(err, updatedItem) => {
 			if (err) return res.send(err);
-			res.redirect(`/users`);
+			res.redirect(`/items/${updatedItem._id}`);
 		}
 	);
 };
@@ -81,7 +81,7 @@ const destroy = (req, res) => {
 		db.User.findById(deletedItem.user, (err, foundUser) => {
 			foundUser.items.remove(deletedItem);
 			foundUser.save();
-			res.redirect("/users")
+			res.redirect("/items")
 		})
 	});
 };

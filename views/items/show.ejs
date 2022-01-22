@@ -11,7 +11,11 @@
             <h2 class="center">List of item</h2>
             <section>
                 <h3 class="center">Item Info</h3>
-                <a class="waves-effect waves-light btn" href="/jobs/<%= item._id %>/edit">Edit</a>
+                <% if(!user) { %>
+                    <p class="center">Please <a href="/auth/google">Log In</a> to Create a Sale Listing</p>
+                <% } else { %>
+                    <a class="waves-effect waves-light btn" href="/items/<%= item._id %>/edit">Edit</a>
+                <% } %>
                 <ul class="center">
                     <li>Item: <%= item.name %></li>
                     <li>Company: <%= item.items_type %></li>

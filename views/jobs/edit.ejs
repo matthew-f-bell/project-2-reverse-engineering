@@ -10,7 +10,7 @@
 			<div class="container">
                 <div class="row">
                     <h5>Please update any chnages to this post. </h5>
-                    <form action="/jobs/" method="POST" class="col s12">
+                    <form action="/jobs/<%= jobs._id %>?_method=PUT" method="POST" class="col s12">
                         <div class="row">
                             <div class="input-field col s12">
                                 <input name="title" id="title" type="text" value="<%= jobs.title %>" class="validate">
@@ -37,7 +37,10 @@
                         <div class="input-field col s12">
                             <input name="user" id="user" type="hidden" value="<%= user._id %>">
                         </div>
-                        <input type="submit" value="Update Job Listing" />
+                        <button type="submit" value="Update Job Listing" class="right btn waves-effect waves-light" >
+                            Update Job Listing
+                            <i class="material-icons right">send</i>
+                        </button>
                     </form>
                 </div>
             </div>
